@@ -1,0 +1,4 @@
+/* This is the documentation for the asset 'Focus' */
+
+The Focus is the path your character walks on. You aren't restricted from being and using anything. But your focus will immensily support a specific way
+your character evolves.
