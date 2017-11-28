@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import game.asset.core.Item;
 
+import teaType.data.bi.StringDouble;
+
 import teaType.util.io.Writer;
 
 public class Item_Creation {
@@ -42,6 +44,7 @@ public class Item_Creation {
 		printItems();
 		addItems(i);
 		writeItems();
+		
 	}
 
 	private final static void printItems(Item... i) {
@@ -74,10 +77,10 @@ public class Item_Creation {
 		sb.append(sym[1] + item.getName() + sym[1]);
 		sb.append("\n");
 
-		int[] arr = item.getUsabilityCodes();
 		sb.append(sym[2]);
+		int[] arr = item.getUsabilityCodes();
 		for(int i = 0; i < arr.length; i++) {
-			if(i == item.getUsabilityCodes().length-1) {
+			if(i == arr.length-1) {
 				sb.append(arr[i] + sym[2]);
 			} else {
 				sb.append(arr[i] + " ");
@@ -88,13 +91,24 @@ public class Item_Creation {
 		sb.append(sym[2] + item.getEquipCode() + sym[2]);
 		sb.append("\n");
 
-		arr = item.getValues();
 		sb.append(sym[2]);
+		arr = item.getValues();
 		for(int i = 0; i < arr.length; i++) {
 			if(i == arr.length-1) {
 				sb.append(arr[i] + sym[2]);
 			} else {
 				sb.append(arr[i] + " ");
+			}
+		}
+		sb.append("\n");
+
+		sb.append(sym[2]);
+		double[] d = item.getDamageStats();
+		for(int i = 0; i < d.length; i++) {
+			if(i == d.length-1) {
+				sb.append(d[i]*100 + sym[2]);
+			} else {
+				sb.append(d[i]*10000 + " ");
 			}
 		}
 		sb.append("\n");
