@@ -13,9 +13,9 @@ public class NPC_Generator {
 	private static String f = "./src/_res/dump/#!f_names.txt";
 	private static String l = "./src/_res/dump/#!lastnames.txt";
 	private static Reader r = new Reader();
-	private static String[] mArr = r.fileToString(m);
-	private static String[] fArr = r.fileToString(f);
-	private static String[] lArr = r.fileToString(l);
+	private static String[] mArr = r.stringArray(m);
+	private static String[] fArr = r.stringArray(f);
+	private static String[] lArr = r.stringArray(l);
 
 	public static NPC generateNPC() throws Exception {
 		Random rnd = new Random();

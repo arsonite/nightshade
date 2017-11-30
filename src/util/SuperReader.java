@@ -71,7 +71,7 @@ public class SuperReader extends Reader {
 	}
 
 	public ArrayList<ArrayList<?>> DEBUG_fileRegexToArrayList() {
-		arr = fileToString("./src/_res/raw/#!app.txt");
+		arr = stringArray("./src/_res/raw/#!app.txt");
 
 		allList = new ArrayList<ArrayList<?>>();
 
@@ -103,7 +103,7 @@ public class SuperReader extends Reader {
 	}
 
 	public ArrayList<ArrayList<String>> DEBUG_fileRegexToStringArrayList(String path, boolean skipCat) {
-		arr = fileToString(path);
+		arr = stringArray(path);
 		strList = new ArrayList<ArrayList<String>>();
 		l = new ArrayList<String>();
 
@@ -134,7 +134,7 @@ public class SuperReader extends Reader {
 	}
 
 	public int[] DEBUG_fileRegexToIntegerArray(String path) {
-		arr = fileToString(path);
+		arr = stringArray(path);
 		ArrayList<String> list = new ArrayList<String>();
 
 		for(String s : arr) {

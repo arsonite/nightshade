@@ -26,7 +26,7 @@ public class Temporary_Test_Environment {
 	
 	private static void tempReader(PrintWriter out) {
 		Reader r = new Reader();
-		String[] temp1 = r.fileToString("./src/_res/dump/#!lastnames.txt");
+		String[] temp1 = r.stringArray("./src/_res/dump/#!lastnames.txt");
 		String[] temp2 = new String[temp1.length];
 		StringBuilder sb;
 		int count = 0;
