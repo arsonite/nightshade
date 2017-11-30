@@ -1,21 +1,19 @@
 package _debug.test;
 
-import java.io.PrintWriter;
-import java.util.Arrays;
-
 import game.asset.NPC;
 import game.asset.Player;
 import game.asset.core.Appearance;
 import game.asset.core.Attributes;
-import game.asset.core.Item;
 import game.asset.core.Mind;
 import game.engine.npc.Interact;
 import game.gen.NPC_Generator;
+import teaType.util.StreamBuffer;
+import teaType.util.statics.Parse;
 
 public class NPC_Interaction {
 	public static void main(String[] args) throws Exception {
-		PrintWriter out = new PrintWriter(System.out, true);
-		
+		StreamBuffer.fixConsole();
+
 		Appearance app = new Appearance();
 		app.setRandom("Male");
 		Attributes att = new Attributes();
@@ -23,7 +21,7 @@ public class NPC_Interaction {
 		Mind mnd = new Mind();
 		mnd.random();
 		Player p = new Player("Burak Günaydin", "Eastern", "Male", 23, app, att, mnd);
-		p.addArmor(512);
+		p.addArmor(300);
 
 		Appearance nApp = new Appearance();
 		nApp.setRandom("Female");
@@ -31,9 +29,17 @@ public class NPC_Interaction {
 		nAtt.random(15);
 		Mind nMnd = new Mind();
 		nMnd.random();
-		NPC n = new NPC("Lauren", "Southern", "Female", 25, nApp, nAtt, nMnd, false);
-//		NPC[] nArr = NPC_Generator.generateNPCS(3);
+		NPC n = new NPC("Jack", "The Ripper", "Male", 25, nApp, nAtt, nMnd, false);
 
+		while(true) {
+			System.err.print("\nWhat do you want to do?");
+			System.out.print("\n> ");
+			String input = Parse.parseUserInput();
+
+			if(input.equals("q")) {
+				break;
+			}
+		}
 		Interact.Fight(p, n);
 	}
 }

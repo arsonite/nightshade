@@ -13,6 +13,7 @@ import game.asset.core.Inventory;
 import game.asset.core.Mind;
 import game.asset.core.Skill;
 import game.asset.core.Trait;
+
 import game.engine.Adventure_C;
 
 //TODO: Für Code und Codelock Thread erstellen
@@ -48,18 +49,14 @@ public class Adventure_Debug extends Adventure_C {
 		displayMenu();
 	}
 
-	public void setInput(String input) {
-		this.input = input;
-	}
+	public void setInput(String input) { this.input = input; }
 
 	private final void updateOutput(String output) {
 		this.output = output;
 		clearCache();
 	}
 
-	private final void clearCache() {
-		sb.delete(0, sb.length());
-	}
+	private final void clearCache() { sb.delete(0, sb.length()); }
 
 	private final void displayMenu() {
 		sb.append(String.format("1.%s %n2.%s %n3.%s",
@@ -207,11 +204,7 @@ public class Adventure_Debug extends Adventure_C {
 		chronoCount++;
 	}
 
-	private void displayStats() {
-		updateOutput(p.retrieveStats());
-	}
+	private void displayStats() { updateOutput(p.retrieveStats()); }
 
-	private final int parseInteger() {
-		return new Integer(Integer.parseInt(input.replaceAll("\\S+s+", "")));
-	}
+	private final int parseInteger() { return new Integer(Integer.parseInt(input.replaceAll("\\S+s+", ""))); }
 }
