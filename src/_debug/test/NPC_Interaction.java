@@ -34,7 +34,8 @@ public class NPC_Interaction {
 		while(true) {
 			System.err.print("\nWhat do you want to do?");
 			System.out.print("\n> ");
-			String input = Parse.parseUserInput();
+			String input = Parse.parseUserInput(true);
+			System.err.println("You typed: \"" + input + "\"");
 
 			if(input.equals("q")) {
 				break;
