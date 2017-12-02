@@ -135,14 +135,14 @@ public class Character implements Characters {
 	// TODO: StringReader for pronoun-set
 	public void setSex(String sex) throws InvalidSexException {
 		// Statement for preventing empty sex-strings
-		if(!m.getMale(sex).find() && !m.getFemale(sex).find()) {
+		if(!m.male(sex) && !m.female(sex)) {
 			if(new Random().nextInt(2) == 0) {
 				sex = "Male";
 			} else {
 				sex = "Female";
 			}
 		}
-		if(m.getMale(sex).find()) {
+		if(m.male(sex)) {
 			this.sex = "Male";
 			// TODO: Probably better solution possible/superReader read-in
 			pn[0] = "he";
@@ -151,7 +151,7 @@ public class Character implements Characters {
 			PN[0] = "He";
 			PN[1] = "Him";
 			PN[2] = "His";
-		} else if(m.getFemale(sex).find()) {
+		} else if(m.female(sex)) {
 			this.sex = "Female";
 			pn[0] = "she";
 			pn[1] = "her";

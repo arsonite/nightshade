@@ -8,11 +8,6 @@ import game.asset.core.Trait;
 
 import teaType.data.bi.BooleanDouble;
 
-/**
- * 
- * @author {@code Hammerhead}
- *
- */
 public class Functions {
 	/**
 	 * 
