@@ -97,8 +97,6 @@ public class Character implements Characters {
 		ARM_MAX = 512;
 		arm = 0.0;
 	}
-	
-	
 
 	private final void equipFist(int side, boolean right) {
 		switch(side) {

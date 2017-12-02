@@ -2,10 +2,12 @@ package game.engine.npc;
 
 import game.asset.NPC;
 import game.asset.Player;
+import game.engine.CommandMatcher;
 import teaType.util.statics.Parse;
 
 public class Interact {
 	public final static void choose(String input, Player p, NPC... arr) throws Exception {
+		CommandMatcher cm = new CommandMatcher();
 		if(input.equals("fight")) {
 			System.err.println("Fight who?");
 			for(NPC n : arr) {
