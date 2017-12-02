@@ -2,7 +2,7 @@ package _debug.old;
 
 import java.util.ArrayList;
 
-import game.engine.CommandMatcher;
+import game.engine.Match;
 
 public class Main {
 
@@ -19,7 +19,7 @@ public class Main {
 
         // Load inventory
         ArrayList<String> inventory = new ArrayList<>();
-        CommandMatcher m = new CommandMatcher();
+        Match m = new Match();
 
         // Start game
         boolean playing = true;

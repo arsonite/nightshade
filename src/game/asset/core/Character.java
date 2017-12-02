@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import game.asset.util.Characters;
 
-import game.engine.CommandMatcher;
+import game.engine.Match;
 
 import game.engine.exceptions.ArmorLimitException;
 import game.engine.exceptions.InvalidSexException;
@@ -35,7 +35,7 @@ public class Character implements Characters {
 	protected Mind mnd;
 	protected ArrayList<Status> sts;
 	protected ArrayList<Trait> trt;
-	protected CommandMatcher m;
+	protected Match m;
 
 	// TODO: Optimization for player and important characters
 	public Character(String name, String orig, String sex, int age, Appearance app, Attributes att, Mind mnd) throws Exception {
@@ -45,7 +45,7 @@ public class Character implements Characters {
 		arm = 0.0;
 		lvl = 1;
 		baseDmg = dmg = new double[3];
-		m = new CommandMatcher();
+		m = new Match();
 		gold = 0;
 
 		this.name = name;
