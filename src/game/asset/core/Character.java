@@ -2,6 +2,8 @@ package game.asset.core;
 
 import java.util.ArrayList;
 
+import game.asset.util.Characters;
+
 import game.engine.CommandMatcher;
 
 import game.engine.exceptions.ArmorLimitException;
@@ -14,7 +16,7 @@ import teaType.util.statics.Random;
 
 import util.Functions;
 
-public class Character {
+public class Character implements Characters {
 	protected String name, sex, orig, titl;
 	protected final String[] pn, PN;
 	protected int lvl, exp, age, hlt, stm, grn, gold;

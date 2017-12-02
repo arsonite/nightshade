@@ -6,7 +6,6 @@ import game.asset.core.Appearance;
 import game.asset.core.Attributes;
 import game.asset.core.Mind;
 import game.engine.npc.Interact;
-import game.gen.NPC_Generator;
 import teaType.util.StreamBuffer;
 import teaType.util.statics.Parse;
 
@@ -30,17 +29,14 @@ public class NPC_Interaction {
 		Mind nMnd = new Mind();
 		nMnd.random();
 		NPC n = new NPC("Jack", "The Ripper", "Male", 25, nApp, nAtt, nMnd, false);
-
+		
 		while(true) {
-			System.err.print("\nWhat do you want to do?");
-			System.out.print("\n> ");
 			String input = Parse.parseUserInput(true);
 			System.err.println("You typed: \"" + input + "\"");
-
+			Interact.choose(input, p, n);
 			if(input.equals("q")) {
 				break;
 			}
 		}
-		Interact.Fight(p, n);
 	}
 }
