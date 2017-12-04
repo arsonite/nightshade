@@ -24,30 +24,30 @@ public class Main {
         // Start game
         boolean playing = true;
         while (playing) {
-
+        	
             String input = Input.getInput();
             // Movement commands
-            if (m.getNorth(input).find()) {
+            if (m.north(input)) {
                 if (y > 0) {
                     Rooms.print(room, x, y);
                 } else {
                     System.out.println("You can't go that way.");
                 }
-            } else if (m.getSouth(input).find()) {
+            } else if (m.south(input)) {
                 if (y < HEIGHT - 1) {
                     y++;
                     Rooms.print(room, x, y);
                 } else {
                     System.out.println("You can't go that way.");
                 }
-            } else if (m.getEast(input).find()) {
+            } else if (m.east(input)) {
                 if (x > 0) {
                     x--;
                     Rooms.print(room, x, y);
                 } else {
                     System.out.println("You can't go that way.");
                 }
-            } else if (m.getWest(input).find()) {
+            } else if (m.west(input)) {
                 if (x < WIDTH - 1) {
                     x++;
                     Rooms.print(room, x, y);
