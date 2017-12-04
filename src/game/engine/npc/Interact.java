@@ -2,13 +2,15 @@ package game.engine.npc;
 
 import game.asset.NPC;
 import game.asset.Player;
+
 import game.engine.Match;
+
 import teaType.util.statics.Parse;
 
 public class Interact {
 	public final static void choose(String input, Player p, NPC... arr) throws Exception {
-		Match cm = new Match();
-		if(input.equals("fight")) {
+		Match m = new Match();
+		if(m.strike(input)) {
 			System.err.println("Fight who?");
 			for(NPC n : arr) {
 				System.out.print(n.getName() + " ");
