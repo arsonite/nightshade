@@ -17,27 +17,15 @@ public class Skill extends Asset {
 		this.trts = trts;
 	}
 	
-	public void setAttributeConditions(Attributes att) {
-		this.att = att;
-	}
+	public void setAttributeConditions(Attributes att) { this.att = att; }
 	
-	public void setTraitConditions(Trait[] trts) {
-		this.trts = trts;
-	}
+	public void setTraitConditions(Trait[] trts) { this.trts = trts; }
 
-	public boolean isAvailable() {
-		return avail;
-	}
+	public boolean isAvailable() { return avail; }
 	
-	public boolean DEBUG_Availability() {
-		return debugAvail;
-	}
+	public boolean DEBUG_Availability() { return debugAvail; }
 	
-	public Attributes getAttributeConditions() {
-		return att;
-	}
+	public Attributes getAttributeConditions() { return att; }
 	
-	public Trait[] getTraitConditions() {
-		return trts;
-	}
+	public Trait[] getTraitConditions() { return trts; }
 }

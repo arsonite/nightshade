@@ -103,29 +103,15 @@ public class Mind {
 		}
 	}
 
-	public String[] getCivicBeliefs() {
-		return pol;
-	}
+	public int getMentalState() { return sta; }
+	public int getProgress() { return prg; }
 
-	public ArrayList<ArrayList<String>> DEBUG_displayAllCivicOptions() {
-		return polArr;
-	}
-
-	public int getMentalState() {
-		return sta;
-	}
-
-	public int getProgress() {
-		return prg;
-	}
-
-	public String getMentalStateToString() {
-		return mntlStat[sta];
-	}
-
-	public String getProgressToString() {
-		return mntlProg[prg];
-	}
+	public String getMentalStateToString() { return mntlStat[sta]; }
+	public String getProgressToString() { return mntlProg[prg]; }
+	
+	public String[] getCivicBeliefs() { return pol; }
+	
+	public ArrayList<ArrayList<String>> DEBUG_displayAllCivicOptions() { return polArr; }
 
 	public boolean isGood() {
 		if (sta == 0) {

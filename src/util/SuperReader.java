@@ -15,20 +15,15 @@ public class SuperReader extends Reader {
 	///////////////////////////
 	/* Customizable fixed Patterns */
 
-	private final Pattern cat = Pattern.compile("#.*#");
-	private final Pattern type = Pattern.compile("!.*!");
-	private final Pattern con = Pattern.compile("-.*-");
-	private final Pattern end = Pattern.compile(";;");
-	private final Pattern string = Pattern.compile(".*String.*");
-	private final Pattern appColor = Pattern.compile(".*app_color.*");
+	private final Pattern CAT = Pattern.compile("#.*#");
+	private final Pattern TYPE = Pattern.compile("!.*!");
+	private final Pattern CON = Pattern.compile("-.*-");
+	private final Pattern END = Pattern.compile(";;");
+	private final Pattern STR = Pattern.compile(".*String.*");
+	private final Pattern APPCOL = Pattern.compile(".*app_color.*");
 
 	/* Correspondent Matcher-Objects for further use */
-	private Matcher mCat;
-	private Matcher mType;
-	private Matcher mCon;
-	private Matcher mEnd;
-	private Matcher mString;
-	private Matcher mAppColor;
+	private Matcher cat, type, con, end, str, appCol;
 
 	/* --------------------- */
 	///////////////////////////
@@ -44,12 +39,12 @@ public class SuperReader extends Reader {
 	}
 
 	private final void compile(String s) {
-		mCat = cat.matcher(s);
-		mType = type.matcher(s);
-		mCon = con.matcher(s);
-		mEnd = end.matcher(s);
-		mString = string.matcher(s);
-		mAppColor = appColor.matcher(s);
+		cat = CAT.matcher(s);
+		type = TYPE.matcher(s);
+		con = CON.matcher(s);
+		end = END.matcher(s);
+		str = STR.matcher(s);
+		appCol = APPCOL.matcher(s);
 	}
 	
 	private final void searchPattern(String s) {
@@ -57,12 +52,12 @@ public class SuperReader extends Reader {
 	
 	private final void cutListEnd(boolean type) {
 		if(type) {
-			if(mEnd.find()) {
+			if(end.find()) {
 				l.remove(l.size()-1);
 				allList.add(l);
 			}	
 		} else {
-			if(mEnd.find()) {
+			if(end.find()) {
 				l.remove(l.size()-1);
 				strList.add(l);
 			}	
@@ -78,21 +73,21 @@ public class SuperReader extends Reader {
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(mString.find()) {
-				s = mString.group();
+			if(str.find()) {
+				s = str.group();
 				l = new ArrayList<String>();
 				continue;
-			} else if (mAppColor.find()) {
-				s = mAppColor.group();
+			} else if (appCol.find()) {
+				s = appCol.group();
 				l = new ArrayList<StringColor>();
 				continue;
 			} else {
-				if(mCat.find()) {
-					s = mCat.group();
-				} else if (mType.find()) {
-					s = mType.group();
-				} else if(mCon.find()) {
-					s = mCon.group();
+				if(cat.find()) {
+					s = cat.group();
+				} else if (type.find()) {
+					s = type.group();
+				} else if(con.find()) {
+					s = con.group();
 				}
 				s = sb.substring(1, s.length()-1);
 				l.add(s);
@@ -110,20 +105,20 @@ public class SuperReader extends Reader {
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(mString.find()) {
-				s = mString.group();
+			if(str.find()) {
+				s = str.group();
 				l = new ArrayList<String>();
 				continue;
 			} else {
-				if(mCat.find()) {
-					s = mCat.group();
+				if(cat.find()) {
+					s = cat.group();
 					if(skipCat) {
 						continue;
 					}
-				} else if (mType.find()) {
-					s = mType.group();
-				} else if(mCon.find()) {
-					s = mCon.group();
+				} else if (type.find()) {
+					s = type.group();
+				} else if(con.find()) {
+					s = con.group();
 				}
 				s = sb.substring(1, s.length()-1);
 				l.add(s);
@@ -140,18 +135,18 @@ public class SuperReader extends Reader {
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(mCat.find()) {
-				s = mCat.group();
-			} else if (mType.find()) {
-				s = mType.group();
-			} else if(mCon.find()) {
-				s = mCon.group();
+			if(cat.find()) {
+				s = cat.group();
+			} else if (type.find()) {
+				s = type.group();
+			} else if(con.find()) {
+				s = con.group();
 			}
 			s = sb.substring(1, s.length()-1);
 			list.add(s);
 		}
 		
-		if(mEnd.find()) {
+		if(end.find()) {
 			list.remove(list.size()-1);
 			list.remove(0);
 			list.remove(0);

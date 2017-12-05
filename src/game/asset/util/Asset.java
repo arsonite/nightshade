@@ -11,15 +11,7 @@ public abstract class Asset implements Assets {
 		id = ID.hash(name, desc);
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return desc;
-	}
-
-	public int getID() {
-		return id;
-	}
+	public String getName() { return name; }
+	public String getDescription() { return desc; }
+	public int getID() { return id; }
 }

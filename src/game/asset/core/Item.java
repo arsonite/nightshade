@@ -114,125 +114,49 @@ public class Item extends Asset {
 	public void setStatus() {
 	}
 
-	public String getEquipName() {
-		return eq.getString();
-	}
+	public String getEquipName() { return eq.getString(); }
+	public String getRarityName() { return rare.getString(); }
+	public String getType() { return type; }
+	public String getWeaponType() { return wpnType; }
+	
+	public String[] getTypes() { return Array.fromArrayList(Asset_Init.ITEM(true).get(0)); }
+	public String[] getRarities() { return Array.fromArrayList(Asset_Init.ITEM(true).get(1)); }
 
-	public int getEquipCode() {
-		return eq.getInteger();
-	}
+	public int getEquipCode() { return eq.getInteger(); }
+	public int getRarityNumber() { return rare.getInteger(); }
+	public int getProtection() { return val[0]; }
+	public int getDurability() { return val[1]; }
+	public int getWeight() { return val[2]; }
+	public int getLoad() { return val[3]; }
+	public int getValue() { return val[4]; }
+	
+	public int[] getValues() { return val; }
 
-	public StringInteger getEquip() {
-		return eq;
-	}
+	public double getDamage() { return dmgStat[0]; }
+	public double getCriticalChance()  { return dmgStat[1]; }
+	public double getCriticalDamage() { return dmgStat[2]; }
+	
+	public double[] getDamageStats() { return dmgStat; }
 
-	public String getRarityName() {
-		return rare.getString();
-	}
+	public boolean isDestructive() { return bool[0]; }
+	public boolean isProtective() { return bool[1]; }
+	public boolean isSellable() { return bool[2]; }
+	public boolean isRepairable() { return bool[3]; }
+	public boolean isEnchantable() { return bool[4]; }
+	public boolean isLootable() { return bool[5]; }
+	public boolean isOwned() { return bool[6]; }
+	public boolean isCrucial() { return bool[7]; }
+	
+	public StringInteger getEquip() { return eq; }
+	public StringInteger getRarity() { return rare; }
+	
+	public StringInteger[] getAllValues() { return vals; }
+	
+	public StringDouble[] getAllDamageStats() { return dmgStats; }
 
-	public int getRarityNumber() {
-		return rare.getInteger();
-	}
-
-	public StringInteger getRarity() {
-		return rare;
-	}
-
-	public String[] getRarities() {
-		return Array.fromArrayList(Asset_Init.ITEM(true).get(1));
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public String[] getTypes() {
-		return Array.fromArrayList(Asset_Init.ITEM(true).get(0));
-	}
-
-	public String getWeaponType() {
-		return wpnType;
-	}
-
-	public int getProtection() {
-		return val[0];
-	}
-
-	public int getDurability() {
-		return val[1];
-	}
-
-	public int getWeight() {
-		return val[2];
-	}
-
-	public int getLoad() {
-		return val[3];
-	}
-
-	public int getValue() {
-		return val[4];
-	}
-
-	public int[] getValues() {
-		return val;
-	}
-
-	public StringInteger[] getAllValues() {
-		return vals;
-	}
-
-	public double getDamage() {
-		return dmgStat[0];
-	}
-
-	public double getCriticalChance()  {
-		return dmgStat[1];
-	}
-
-	public double getCriticalDamage() {
-		return dmgStat[2];
-	}
-
-	public double[] getDamageStats() {
-		return dmgStat;
-	}
-
-	public StringDouble[] getAllDamageStats() {
-		return dmgStats;
-	}
-
-	public boolean isDestructive() {
-		return bool[0];
-	}
-
-	public boolean isProtective() {
-		return bool[1];
-	}
-
-	public boolean isSellable() {
-		return bool[2];
-	}
-
-	public boolean isRepairable() {
-		return bool[3];
-	}
-
-	public boolean isEnchantable() {
-		return bool[4];
-	}
-
-	public boolean isLootable() {
-		return bool[5];
-	}
-
-	public boolean isOwned() {
-		return bool[6]; 
-	}
-
-	public boolean isCrucial() {
-		return bool[7]; 
-	}
+	public StringBoolean[] getUsability() { return use; }
+	
+	public ArrayList<Status> getStatus() { return sts; }
 	
 	public int[] getUsabilityCodes() {
 		int[] arr = new int[use.length];
@@ -244,14 +168,6 @@ public class Item extends Asset {
 			}
 		}
 		return arr;
-	}
-
-	public StringBoolean[] getUsability() {
-		return use;
-	}
-
-	public ArrayList<Status> getStatus() {
-		return sts;
 	}
 
 	public String retrieveStats() {

@@ -9,7 +9,5 @@ public class Status extends Asset {
 		super(name, desc);
 	}
 	
-	public boolean isAvailable() {
-		return avail;
-	}
+	public boolean isAvailable() { return avail; }
 }
