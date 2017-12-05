@@ -39,6 +39,7 @@ public class SelectionScreen {
 	}
 
 	public void debug(boolean b) {
+		// TODO: Implementation of SuperReader
 		String[] btnID = {
 				"I. The First Tale: Primal Instict",
 				"II. The Second Tale: Dawn of Civilization",

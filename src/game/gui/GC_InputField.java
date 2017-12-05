@@ -81,10 +81,10 @@ public class GC_InputField extends JPanel implements PropertyChangeListener {
 				};
 		for(Enum<?> e : permCom) {
 			j = new JLabel(e.toString());
-			if(	e == Command.CHECK ||
-				e == Command.MEDITATE ||
-				e == Command.REMEMBER ||
-				e == Command.AWAKE ||
+			if(	e == Command.CHECK 		||
+				e == Command.MEDITATE 	||
+				e == Command.REMEMBER 	||
+				e == Command.AWAKE 		||
 				e == Command.UNLINK) {
 				j.setForeground(Color.RED);
 			} else {

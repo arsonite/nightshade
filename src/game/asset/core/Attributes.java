@@ -107,7 +107,7 @@ public class Attributes {
 
 	/**
 	 * A method to convert the integer-array of attributes to a StringInteger-array containing
-	 * the descriptive atttribute-names with their corresponding value
+	 * the descriptive attribute-names with their corresponding value
 	 */
 	private void attributesToUtil() {
 		// TODO: Replace with StringReader

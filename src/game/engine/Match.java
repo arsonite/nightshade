@@ -3,6 +3,7 @@ package game.engine;
 import java.util.regex.Pattern;
 
 public class Match {
+	// TODO: Implementation of SuperReader
 	final Pattern compilePattern(String p1, String p2) { return Pattern.compile("^[" + p1 + "]+[" + p2 + "]+?.*"); }
 	
 	public final boolean north(String input) { return compilePattern("Nn", "orth").matcher(input).find(); }
