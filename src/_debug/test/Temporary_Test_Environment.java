@@ -69,8 +69,4 @@ public class Temporary_Test_Environment {
 		int lvl = Functions.calculateLevel(exp);
 		out.printf("%nGiven Overall XP: %d, Current Level: %d", exp, lvl);
 	}
-	
-	private static void pronouns(PrintWriter out) {
-		Character c = new Character("", 0, null, null, null);
-	}
 }

@@ -8,6 +8,12 @@ import game.asset.core.Trait;
 
 import teaType.data.bi.BooleanDouble;
 
+/**
+ * The utility-class {@code Functions} is a collection of mathematical functions and algorithms
+ * which finds its uses all over the classes in the engine and its assets.
+ * 
+ * @author Burak Günaydin
+ */
 public class Functions {
 	/**
 	 * 

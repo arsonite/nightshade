@@ -9,6 +9,7 @@ import game.gui.SelectionScreen;
 import game.gui.SuperContainer;
 
 public class Main {
+	public final static boolean LOG_BOOL = true;
 	public static SuperContainer sC;
 	public static SelectionScreen gsS;
 	public static SelectionScreen aSS; //Not even on purpose

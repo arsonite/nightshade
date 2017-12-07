@@ -38,7 +38,7 @@ public class Character implements Characters {
 	protected Match m;
 
 	// TODO: Optimization for player and important characters
-	public Character(String name, String orig, String sex, int age, Appearance app, Attributes att, Mind mnd) throws Exception {
+	protected Character(String name, String orig, String sex, int age, Appearance app, Attributes att, Mind mnd) throws Exception {
 		pn = PN = new String[3];
 		EXP_MAX = 128256512;
 		ARM_MAX = 512;
@@ -83,7 +83,7 @@ public class Character implements Characters {
 	}
 
 	// TODO: NPC-Creation optimization
-	public Character(String name, int age, Appearance app,  Attributes att, Blood bld) {
+	protected Character(String name, int age, Appearance app,  Attributes att, Blood bld) {
 		pn = PN = new String[3];
 		EXP_MAX = 128256512;
 		ARM_MAX = 512;
@@ -91,7 +91,7 @@ public class Character implements Characters {
 	}
 
 	// TODO: Complete random
-	public Character() {
+	protected Character() {
 		pn = PN = new String[3];
 		EXP_MAX = 128256512;
 		ARM_MAX = 512;
@@ -165,13 +165,9 @@ public class Character implements Characters {
 		}*/
 	}
 
-	protected final void calculateHealth() {
-		HLT_MAX = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld);
-	}
+	protected final void calculateHealth() { HLT_MAX = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld); }
 
-	protected final void calculateStamina() {
-		STM_MAX = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld);
-	}
+	protected final void calculateStamina() { STM_MAX = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld); }
 
 	protected final void calculateDamage() {
 		double[] itemDmg = new double[3];
@@ -184,9 +180,7 @@ public class Character implements Characters {
 		}
 	}
 
-	protected final void calculateGrant() {
-		GRN_MAX = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt);
-	}
+	protected final void calculateGrant() { GRN_MAX = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt); }
 
 	public void useConjuration(int spl_ID) {
 		for(int i = 0; i < con.size(); i++) {
