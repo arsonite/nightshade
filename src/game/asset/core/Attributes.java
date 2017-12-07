@@ -40,9 +40,7 @@ public class Attributes {
 		attributesToUtil();
 	}
 
-	private final void calculateLethargy() {
-		let = Functions.calculateLethargy(att);
-	}
+	private final void calculateLethargy() { let = Functions.calculateLethargy(att); }
 
 	public boolean isGodlike() {
 		int sum = 0;
@@ -132,37 +130,14 @@ public class Attributes {
 		return t;
 	}
 
-	public int getFitness() {
-		return att[0];
-	}
-
-	public int getVigor() {
-		return att[1];
-	}
-
-	public int getAlacrity() {
-		return att[2];
-	}
-
-	public int getBrilliance() {
-		return att[3];
-	}
-
-	public int getAwareness() {
-		return att[4];
-	}
-
-	public int getEmpathy() {
-		return att[5];
-	}
-
-	public int getTranscendence() {
-		return att[6];
-	}
-
-	public int getLethargy() {
-		return let;
-	}
+	public int getFitness() { return att[0]; }
+	public int getVigor() { return att[1]; }
+	public int getAlacrity() { return att[2]; }
+	public int getBrilliance() { return att[3]; }
+	public int getAwareness() { return att[4]; }
+	public int getEmpathy() { return att[5]; }
+	public int getTranscendence() { return att[6]; }
+	public int getLethargy() { return let; }
 
 	public int[] getNumbers(boolean let) {
 		if(let) {

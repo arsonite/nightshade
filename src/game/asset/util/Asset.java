@@ -13,5 +13,6 @@ public abstract class Asset implements Assets {
 
 	public String getName() { return name; }
 	public String getDescription() { return desc; }
+	
 	public int getID() { return id; }
 }

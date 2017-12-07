@@ -61,29 +61,15 @@ public class Appearance {
 		}
 	}
 
-	private final void calculateBMI() {
-		bmi = Functions.calculateBMI(getHeight(), getWeight());
-	}
+	private final void calculateBMI() { bmi = Functions.calculateBMI(getHeight(), getWeight()); }
 
-	public double getHeight() {
-		return (hght/100);
-	}
+	public double getHeight() { return (hght/100); }
+	public double getWeight() { return (wght/1000); }
+	public double getBMI() { return bmi; }
 
-	public double getWeight() {
-		return (wght/1000);
-	}
+	public Hashtable<Object, Object> getAppearance() { return t; }
 
-	public double getBMI() {
-		return bmi;
-	}
-
-	public Hashtable<Object, Object> getAppearance() {
-		return t;
-	}
-
-	public ArrayList<ArrayList<?>> getList() {
-		return Asset_Init.APP();
-	}
+	public ArrayList<ArrayList<?>> getList() { return Asset_Init.APP(); }
 
 	public void DEBUG_printAvailableOptions() {
 		PrintWriter out = new PrintWriter(System.out, true);

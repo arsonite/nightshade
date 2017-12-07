@@ -4,7 +4,7 @@ import util.Functions;
 
 public class Blood {
 	private String bldType;
-	// TODO: Superreader
+	// TODO: Super-Reader Implementation
 	private final String[] bldHlt = {"Pure", "Healthy", "Polluted", "Infected", "Ill", "Incurable", "Fatal", "Occult", "Mutated"};
 	private int state;
 	private double amount, bldFac;
@@ -67,27 +67,15 @@ public class Blood {
 		}
 	}
 	
-	protected String getBloodtype() {
-		return bldType;
-	}
+	public String getBloodtype() { return bldType; }
 	
-	protected int getBloodState() {
-		return state;
-	}
+	public int getBloodState() { return state; }
 	
-	protected double getAmount() {
-		return amount;
-	}
-
-	public double getBloodfactor() {
-		return bldFac;
-	}
+	public double getAmount() { return amount; }
+	public double getBloodfactor() { return bldFac; }
+	public double getRemainingFactor() { return (amount / MAX_AMOUNT); }
 	
-	public double getRemainingFactor() {
-		return (amount / MAX_AMOUNT);
-	}
-	
-	protected boolean isBledOut() {
+	public boolean isBledOut() {
 		if(bledOut) {
 			return true;
 		} else {

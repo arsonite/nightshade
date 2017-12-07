@@ -6,6 +6,7 @@ import teaType.data.bi.StringInteger;
 
 public class Conjuration extends Asset {
 	private String type;
+	// TODO: SuperReader-Implementation
 	private final String[] TYPES = {"Destructive", "Protective", "Auxiliary"};
 	private int[] val = new int[4];
 
@@ -21,33 +22,14 @@ public class Conjuration extends Asset {
 		val[3] = cha;
 	}
 	
-	public String getType() {
-		return type;
-	}
+	public String getType() { return type; }
 	
-	public int getDamage() {
-		return val[0];
-	}
-
-	public int getProtection() {
-		return val[0];
-	}
-
-	public int getEffect() {
-		return val[0];
-	}
-
-	public int getDuration() {
-		return val[1];
-	}
-
-	public int getCost() {
-		return val[2];
-	}
-
-	public int getCharges() {
-		return val[3];
-	}
+	public int getDamage() { return val[0]; }
+	public int getProtection() { return val[0]; }
+	public int getEffect() { return val[0]; }
+	public int getDuration() { return val[1]; }
+	public int getCost() { return val[2]; }
+	public int getCharges() { return val[3]; }
 	
 	public StringInteger getValues(int code) {
 		switch(code) {

@@ -10,16 +10,18 @@ public class Inventory {
 	}
 	
 	public void add(Item i) {
-		inv.add(i);
+		if(!inv.contains(i)) {
+			inv.add(i);
+		}
 	}
 	
 	public void remove(Item i) {
-		inv.remove(i);
+		if(inv.contains(i)) {
+			inv.remove(i);
+		}
 	}
 	
-	public int getSize() {
-		return inv.size();
-	}
+	public int getSize() { return inv.size(); }
 	
 	public void printItems() {
 		for(Item i : inv) {
@@ -27,9 +29,7 @@ public class Inventory {
 		}
 	}
 	
-	public ArrayList<Item> getInventory() {
-		return inv;
-	}
+	public ArrayList<Item> getInventory() { return inv; }
 	
 	/*
 	public Item getWeapon() {
