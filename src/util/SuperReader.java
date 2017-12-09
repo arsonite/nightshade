@@ -66,7 +66,7 @@ public class SuperReader extends Reader {
 	}
 
 	public ArrayList<ArrayList<?>> DEBUG_fileRegexToArrayList() {
-		arr = stringArray("./src/_res/raw/#!app.txt");
+		arr = stringArray("./res/raw/#!app.txt");
 
 		allList = new ArrayList<ArrayList<?>>();
 

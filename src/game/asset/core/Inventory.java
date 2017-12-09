@@ -31,16 +31,6 @@ public class Inventory {
 	
 	public ArrayList<Item> getInventory() { return inv; }
 	
-	/*
-	public Item getWeapon() {
-		if(containsWeapon()) {
-			return 
-		} else {
-			return null;
-		}
-	}
-	*/
-	
 	public boolean containsWeapon() {
 		for(Item i : inv) {
 			if(i.isDestructive()) {

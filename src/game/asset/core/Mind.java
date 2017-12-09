@@ -17,14 +17,14 @@ public class Mind {
 
 	public Mind() {
 		SuperReader r = new SuperReader();
-		ArrayList<ArrayList<String>> temp = r.DEBUG_fileRegexToStringArrayList("./src/_res/raw/#!mnd.txt", true);
+		ArrayList<ArrayList<String>> temp = r.DEBUG_fileRegexToStringArrayList("./res/raw/#!mnd.txt", true);
 		
 		mntlStat = Array.fromArrayList(temp.get(0));
 		mntlProg = Array.fromArrayList(temp.get(1));
 		
 		mtl = 1000;
 		setProgress();
-		polArr = r.DEBUG_fileRegexToStringArrayList("./src/_res/raw/#!pol.txt", false);
+		polArr = r.DEBUG_fileRegexToStringArrayList("./res/raw/#!pol.txt", false);
 	}
 	
 	public void random() {

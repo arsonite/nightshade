@@ -31,6 +31,7 @@ public class Conjuration extends Asset {
 	public int getCost() { return val[2]; }
 	public int getCharges() { return val[3]; }
 	
+	// TODO: SuperReader-Implementation
 	public StringInteger getValues(int code) {
 		switch(code) {
 		case 0:

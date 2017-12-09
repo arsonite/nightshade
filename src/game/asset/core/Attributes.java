@@ -21,17 +21,19 @@ import game.engine.exceptions.LevelOutOfBoundsException;
  */
 
 public class Attributes {
+	public int sum;
 	private int let;
-	public int DEBUG_sum;
-	private int[] att = new int[7];
+	private int[] att;
 	private final int lvlCap = 700;
 	private StringInteger letUtil;
-	private StringInteger[] attUtil = new StringInteger[att.length];
+	private StringInteger[] attUtil;
 
 	public Attributes() {
+		att = new int[7];
 		for(int i = 0; i < att.length; i++) {
 			att[i] = 1;
 		}
+		attUtil = new StringInteger[att.length];
 		attributesToUtil();
 	}
 
@@ -109,19 +111,14 @@ public class Attributes {
 	 */
 	private void attributesToUtil() {
 		// TODO: Replace with StringReader
-		DEBUG_sum = 0;
+		sum = 0;
 		String[] temp = {"Fitness", "Vigor", "Alacrity", "Brilliance", "Awareness", "Empathy", "Transcendence"};
 		for(int i = 0; i < temp.length; i++) {
 			attUtil[i] = new StringInteger(temp[i], att[i]);
-			DEBUG_sum+= att[i];
+			sum+= att[i];
 		}
-		DEBUG_calculateSum();
 		calculateLethargy();
 		letUtil = new StringInteger("Lethargy", let);
-	}
-	
-	private final void DEBUG_calculateSum() {
-		
 	}
 
 	// TODO: Player-Title dependent on amount of different attributes
