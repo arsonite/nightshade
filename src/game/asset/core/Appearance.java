@@ -11,9 +11,7 @@ import util.Functions;
 
 public class Appearance {
 	private Hashtable<Object, Object> t;
-	private double hght;
-	private double wght;
-	private double bmi;
+	private double hght, wght, bmi;
 
 	public Appearance() {
 		t = new Hashtable<Object, Object>();
@@ -30,8 +28,8 @@ public class Appearance {
 	}
 
 	public void setBodyMeasurements(int hght, double wght) {
-		this.hght = hght;
-		this.wght = wght;
+		setHeight(hght);
+		setWeight(wght);
 		calculateBMI();
 	}
 
@@ -62,6 +60,9 @@ public class Appearance {
 	}
 
 	private final void calculateBMI() { bmi = Functions.calculateBMI(getHeight(), getWeight()); }
+	
+	public String getHeightInMeter() { return getHeight() + "m"; }
+	public String getWeightInKG() { return getWeight() + "kg"; }
 
 	public double getHeight() { return (hght/100); }
 	public double getWeight() { return (wght/1000); }

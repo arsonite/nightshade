@@ -5,8 +5,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JTextField;
 
-import game.engine.CommandController;
-
 public class ActionController implements KeyListener {
 	private String input;
 	private final int USER_INPUT = 10;
@@ -18,7 +16,6 @@ public class ActionController implements KeyListener {
 	private boolean[] debug;
 	private Enum<?> command;
 	private Central c;
-	private CommandController cc;
 	// TODO: Probably better solution for debug-mode possible
 
 	public ActionController(Central c) {

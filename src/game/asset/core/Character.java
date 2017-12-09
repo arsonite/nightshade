@@ -90,14 +90,6 @@ public class Character implements Characters {
 		arm = 0.0;
 	}
 
-	// TODO: Complete random
-	protected Character() {
-		pn = PN = new String[3];
-		EXP_MAX = 128256512;
-		ARM_MAX = 512;
-		arm = 0.0;
-	}
-
 	private final void equipFist(int side, boolean right) {
 		switch(side) {
 		case 0:
