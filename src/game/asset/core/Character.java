@@ -19,9 +19,8 @@ import util.Functions;
 public class Character implements Characters {
 	protected String name, sex, orig, titl;
 	protected final String[] pn, PN;
-	protected int lvl, exp, age, hlt, stm, grn, gold;
-	protected int STM_MAX, HLT_MAX, GRN_MAX;
-	protected final int EXP_MAX, ARM_MAX;
+	protected int lvl, exp, age, hlt, stm, grn, gold, STM_MAX, HLT_MAX, GRN_MAX;
+	protected final int EXP_MAX, ARM_MAX, char_id;
 	protected double arm, dmgIn;
 	protected double[] baseDmg, dmg;
 	protected boolean flag, gift;
@@ -36,9 +35,17 @@ public class Character implements Characters {
 	protected ArrayList<Status> sts;
 	protected ArrayList<Trait> trt;
 	protected Match m;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setOrigin(String origin) {
+		this.orig = orig;
+	}
 
-	// TODO: Optimization for player and important characters
-	protected Character(String name, String orig, String sex, int age, Appearance app, Attributes att, Mind mnd) throws Exception {
+	/* Constructor for first time initiation of Player-object */
+	protected Character(String name, String orig, int age) throws Exception {
 		pn = PN = new String[3];
 		EXP_MAX = 128256512;
 		ARM_MAX = 512;
@@ -47,6 +54,8 @@ public class Character implements Characters {
 		baseDmg = dmg = new double[3];
 		m = new Match();
 		gold = 0;
+		
+		char_id = Functions.hashID(name.split(" ")[0], name.split(" ")[1]);
 
 		this.name = name;
 		this.orig = orig;
@@ -81,13 +90,19 @@ public class Character implements Characters {
 		calculateStamina();
 		calculateDamage();
 	}
+	
+	/* Constructor for data read in with implementation of SuperReader */
+	protected Character(int char_id) {
+		pn = PN = new String[3];
+		EXP_MAX = 128256512;
+		ARM_MAX = 512;
+	}
 
-	// TODO: NPC-Creation optimization
+	/* Constructor for first time initiation of NPC-object */
 	protected Character(String name, int age, Appearance app,  Attributes att, Blood bld) {
 		pn = PN = new String[3];
 		EXP_MAX = 128256512;
 		ARM_MAX = 512;
-		arm = 0.0;
 	}
 
 	private final void equipFist(int side, boolean right) {
