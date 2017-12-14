@@ -2,7 +2,7 @@ package game.asset.core;
 
 import java.util.ArrayList;
 
-import game.asset.util.Characters;
+import game.asset.util.Character_I;
 
 import game.engine.Match;
 
@@ -16,7 +16,7 @@ import teaType.util.statics.Random;
 
 import util.Functions;
 
-public class Character implements Characters {
+public class Character implements Character_I {
 	protected String name, sex, orig, titl;
 	protected final String[] pn, PN;
 	protected int lvl, exp, age, hlt, stm, grn, gold, STM_MAX, HLT_MAX, GRN_MAX;
@@ -36,13 +36,11 @@ public class Character implements Characters {
 	protected ArrayList<Trait> trt;
 	protected Match m;
 	
-	public void setName(String name) {
-		this.name = name;
-	}
+	public void setName(String name) { this.name = name; }
 	
-	public void setOrigin(String origin) {
-		this.orig = orig;
-	}
+	public void setOrigin(String orig) { this.orig = orig; }
+	
+	public void setAge(int age) { this.age = age; }
 
 	/* Constructor for first time initiation of Player-object */
 	protected Character(String name, String orig, int age) throws Exception {
