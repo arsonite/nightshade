@@ -19,8 +19,9 @@ import util.Functions;
 public class Character implements Character_I {
 	protected String name, sex, orig, titl;
 	protected final String[] pn, PN;
-	protected int lvl, exp, age, hlt, stm, grn, gold, STM_MAX, HLT_MAX, GRN_MAX;
-	protected final int EXP_MAX, ARM_MAX, char_id;
+	protected int lvl, exp, age, hlt, stm, grn, gold, maxStm, maxHlt, maxGrn;
+	protected final int EXP_MAX = 128256512, ARM_MAX = 512;
+	protected final int char_id;
 	protected double arm, dmgIn;
 	protected double[] baseDmg, dmg;
 	protected boolean flag, gift;
@@ -41,12 +42,12 @@ public class Character implements Character_I {
 	public void setOrigin(String orig) { this.orig = orig; }
 	
 	public void setAge(int age) { this.age = age; }
+	
+	public void setAppearance() { }
 
 	/* Constructor for first time initiation of Player-object */
 	protected Character(String name, String orig, int age) throws Exception {
 		pn = PN = new String[3];
-		EXP_MAX = 128256512;
-		ARM_MAX = 512;
 		arm = 0.0;
 		lvl = 1;
 		baseDmg = dmg = new double[3];
@@ -92,15 +93,13 @@ public class Character implements Character_I {
 	/* Constructor for data read in with implementation of SuperReader */
 	protected Character(int char_id) {
 		pn = PN = new String[3];
-		EXP_MAX = 128256512;
-		ARM_MAX = 512;
+		this.char_id = char_id;
 	}
 
 	/* Constructor for first time initiation of NPC-object */
 	protected Character(String name, int age, Appearance app,  Attributes att, Blood bld) {
 		pn = PN = new String[3];
-		EXP_MAX = 128256512;
-		ARM_MAX = 512;
+		char_id = Functions.hashID(name.split(" ")[0], name.split(" ")[1]);
 	}
 
 	private final void equipFist(int side, boolean right) {
@@ -170,9 +169,9 @@ public class Character implements Character_I {
 		}*/
 	}
 
-	protected final void calculateHealth() { HLT_MAX = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld); }
+	protected final void calculateHealth() { maxHlt = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld); }
 
-	protected final void calculateStamina() { STM_MAX = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld); }
+	protected final void calculateStamina() { maxStm = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld); }
 
 	protected final void calculateDamage() {
 		double[] itemDmg = new double[3];
@@ -185,7 +184,7 @@ public class Character implements Character_I {
 		}
 	}
 
-	protected final void calculateGrant() { GRN_MAX = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt); }
+	protected final void calculateGrant() { maxGrn = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt); }
 
 	public void useConjuration(int spl_ID) {
 		for(int i = 0; i < con.size(); i++) {
@@ -348,20 +347,20 @@ public class Character implements Character_I {
 			int sacr = Functions.sacrificeHealth(hlt, att.getTranscendence());
 			int gain = (int) (Functions.calculateGrant(att.getTranscendence(), mnd, trt) * Math.sin(Math.toRadians((att.getTranscendence() / 10.0) + 20)));
 			int temp = gain;
-			boolean grnCon = (grn + gain) <= GRN_MAX;
+			boolean grnCon = (grn + gain) <= maxGrn;
 			boolean hltCon = (hlt - sacr) >= 0;
-			boolean tempCon = (grn + temp) <= GRN_MAX;
+			boolean tempCon = (grn + temp) <= maxGrn;
 			if(grnCon && hltCon) {
 				for(int i = 0; i < itrs; i++) {
 					if(hltCon && tempCon) {
 						hlt-= sacr;
 						grn+= gain;
 						temp = gain;
-						tempCon = (grn + (temp*= (i + 1))) <= GRN_MAX;
+						tempCon = (grn + (temp*= (i + 1))) <= maxGrn;
 					} else {
 						if(hltCon) {
 							hlt-= sacr;
-							grn+= temp - ((temp + grn) - GRN_MAX);
+							grn+= temp - ((temp + grn) - maxGrn);
 						}
 						break;
 					}
