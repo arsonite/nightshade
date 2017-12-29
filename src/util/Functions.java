@@ -12,9 +12,11 @@ import teaType.data.bi.BooleanDouble;
  * The utility-class {@code Functions} is a collection of mathematical functions and algorithms
  * which finds its uses all over the classes in the engine and its assets.
  * 
- * @author Burak Günaydin
+ * @since JDK 1.91 ~ <i>2017</i>
+ * @author Burak Günaydin <b>{@code (arsonite)}</b>
  */
 public class Functions {
+	
 	/**
 	 * 
 	 * @param chance

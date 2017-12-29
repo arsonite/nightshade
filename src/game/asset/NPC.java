@@ -15,7 +15,7 @@ public class NPC extends Character {
 
 	public NPC(String name, String race, String sex, int age, Appearance appearance, Attributes attributes,
 			Mind mind, boolean crucial) throws Exception {
-		super(name, race, sex, age, appearance, attributes, mind);
+		super(name, race, age);
 		this.crucial = crucial;
 		flag = false;
 	}
