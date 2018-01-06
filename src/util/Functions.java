@@ -16,7 +16,7 @@ import teaType.data.bi.BooleanDouble;
  * @author Burak Günaydin <b>{@code (arsonite)}</b>
  */
 public class Functions {
-	
+
 	/**
 	 * 
 	 * @param chance
@@ -98,7 +98,9 @@ public class Functions {
 	 * @param bld
 	 * @return
 	 */
-	public final static int calculateHealth(int fit, int vig, int age, Blood bld) { return new Integer((int) alphaFormula(age, fit, vig, 10, 1.5, bld)); }
+	public final static int calculateHealth(int fit, int vig, int age, Blood bld) {
+		return new Integer((int) alphaFormula(age, fit, vig, 10, 1.5, bld));
+	}
 
 	/**
 	 * 
@@ -108,7 +110,9 @@ public class Functions {
 	 * @param bld
 	 * @return
 	 */
-	public final static int calculateStamina(int fit, int alc, int age, Blood bld) { return new Integer((int) alphaFormula(age, fit, alc, 1.5, 2, bld)); }
+	public final static int calculateStamina(int fit, int alc, int age, Blood bld) {
+		return new Integer((int) alphaFormula(age, fit, alc, 1.5, 2, bld));
+	}
 
 	/**
 	 * 
@@ -118,7 +122,9 @@ public class Functions {
 	 * @return
 	 */
 	// TODO: Balancing
-	public final static int calculateGrant(int trc, Mind m, ArrayList<Trait> t) { return new Integer((int) betaFormula(trc)); }
+	public final static int calculateGrant(int trc, Mind m, ArrayList<Trait> t) {
+		return new Integer((int) betaFormula(trc));
+	}
 
 	/**
 	 * 
@@ -179,7 +185,9 @@ public class Functions {
 	 * @return
 	 */
 	// TODO: Balancing
-	public final static int sacrificeHealth(int hlt, int trc) { return ((int) ((hlt/16.0) - (betaFormula(trc)/8.0))); }
+	public final static int sacrificeHealth(int hlt, int trc) {
+		return ((int) ((hlt/16.0) - (betaFormula(trc)/8.0)));
+	}
 
 	/**
 	 * 
@@ -202,7 +210,9 @@ public class Functions {
 	 * @param wght
 	 * @return
 	 */
-	public final static double calculateBMI(double hght, double wght) { return new Double(wght/(Math.pow(hght, 2))); }
+	public final static double calculateBMI(double hght, double wght) {
+		return new Double(wght/(Math.pow(hght, 2)));
+	}
 
 	/**
 	 * 
@@ -210,7 +220,9 @@ public class Functions {
 	 * @param s2
 	 * @return
 	 */
-	public final static int hashID(String s1, String s2) { return Integer.parseInt(Integer.toString(Math.abs((s1 + s2).hashCode())).substring(0, 5)); }
+	public final static int hashID(String s1, String s2) {
+		return Integer.parseInt(Integer.toString(Math.abs((s1 + s2).hashCode())).substring(0, 5));
+	}
 
 	/**
 	 * 
@@ -232,7 +244,9 @@ public class Functions {
 	 * @param trc
 	 * @return
 	 */
-	private final static double betaFormula(int trc) { return new Double(((6.4 + trc) * trc) - ((3.2 + trc) * trc) + (trc / (trc + 16))); }
+	private final static double betaFormula(int trc) {
+		return new Double(((6.4 + trc) * trc) - ((3.2 + trc) * trc) + (trc / (trc + 16)));
+	}
 
 	/**
 	 * 

@@ -15,12 +15,12 @@ public class SuperReader extends Reader {
 	///////////////////////////
 	/* Customizable fixed Patterns */
 
-	private final Pattern CAT = Pattern.compile("#.*#");
-	private final Pattern TYPE = Pattern.compile("!.*!");
-	private final Pattern CON = Pattern.compile("-.*-");
-	private final Pattern END = Pattern.compile(";;");
-	private final Pattern STR = Pattern.compile(".*String.*");
-	private final Pattern APPCOL = Pattern.compile(".*app_color.*");
+	final Pattern CAT = Pattern.compile("#.*#");
+	final Pattern TYPE = Pattern.compile("!.*!");
+	final Pattern CON = Pattern.compile("-.*-");
+	final Pattern END = Pattern.compile(";;");
+	final Pattern STR = Pattern.compile(".*String.*");
+	final Pattern APPCOL = Pattern.compile(".*app_color.*");
 
 	/* Correspondent Matcher-Objects for further use */
 	private Matcher cat, type, con, end, str, appCol;
@@ -131,7 +131,6 @@ public class SuperReader extends Reader {
 	public int[] DEBUG_fileRegexToIntegerArray(String path) {
 		arr = stringArray(path);
 		ArrayList<String> list = new ArrayList<String>();
-
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
@@ -145,7 +144,6 @@ public class SuperReader extends Reader {
 			s = sb.substring(1, s.length()-1);
 			list.add(s);
 		}
-		
 		if(end.find()) {
 			list.remove(list.size()-1);
 			list.remove(0);
@@ -153,14 +151,11 @@ public class SuperReader extends Reader {
 		}
 		
 		arr = new String[list.size()];
-		
 		int[] intArr = new int[arr.length];
-		
 		for(int i = 0; i < arr.length; i++) {
 			arr[i] = list.get(i);
 			intArr[i] = Integer.parseInt(arr[i]);
 		}
-
 		return intArr;
 	}
 }
