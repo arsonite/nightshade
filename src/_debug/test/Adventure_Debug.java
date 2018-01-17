@@ -14,10 +14,10 @@ import game.asset.core.Mind;
 import game.asset.core.Skill;
 import game.asset.core.Trait;
 
-import game.engine.Adventure_C;
+import game.engine.Adventure;
 
 //TODO: Für Code und Codelock Thread erstellen
-public class Adventure_Debug extends Adventure_C {
+public class Adventure_Debug extends Adventure {
 	private static final long serialVersionUID = 7454987830282711827L;
 
 	private final String MARK_I = "> ";

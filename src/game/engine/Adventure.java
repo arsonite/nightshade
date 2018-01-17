@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import game.asset.NPC;
+
 import game.asset.core.Item;
 import game.asset.core.Location;
 
-public class Adventure_C extends HashMap<Object, Object> implements Adventure_I {
+public abstract class Adventure extends HashMap<Object, Object> implements Adventure_I {
 	private static final long serialVersionUID = 1187307781663420870L;
 	
 	protected String title, desc, input, output;
@@ -16,13 +17,13 @@ public class Adventure_C extends HashMap<Object, Object> implements Adventure_I 
 	protected ArrayList<Item> itemList;
 	protected ArrayList<Location> locList;
 
-	public Adventure_C() {
+	public Adventure() {
 		npcList = new ArrayList<NPC>();
 		itemList = new ArrayList<Item>();
 		locList = new ArrayList<Location>();
 	}
 
-	public Adventure_C(String title, String description, int chronology) {
+	public Adventure(String title, String description, int chronology) {
 		this.title = title;
 		this.desc = description;
 		this.chrono = chronology;

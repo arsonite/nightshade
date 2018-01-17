@@ -3,10 +3,14 @@ package _debug.test;
 import java.io.PrintWriter;
 
 import game.asset.core.Attributes;
+
 import teaType.data.bi.StringInteger;
+
+import teaType.util.StreamBuffer;
 
 public class AssetTest_Lethargy {
 	public static void main(String[] args) throws Exception {
+		StreamBuffer.fixConsole();
 		PrintWriter out = new PrintWriter(System.out, true);
 
 		Attributes att = new Attributes();

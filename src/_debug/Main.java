@@ -2,7 +2,7 @@ package _debug;
 
 import _debug.test.Adventure_Debug;
 
-import game.engine.Adventure_C;
+import game.engine.Adventure;
 import game.engine.Adventure_I;
 
 import game.gui.SelectionScreen;
@@ -15,8 +15,8 @@ public class Main {
 	public static SelectionScreen aSS; //Not even on purpose
 
 	public static void main(String[] args) {
-		//int launchcode = args[0];
-		int launchcode = 0;
+		//int launchcode = Integer.parseInt(args[0]);
+		int launchcode = 0; //Debug-Override
 		if(launchcode == 0) {
 			debug();
 		} else {
@@ -44,7 +44,7 @@ public class Main {
 		aSS.display(true);
 	}
 
-	public static void launchGame(Adventure_C a) {
+	public static void launchGame(Adventure a) {
 		aSS.close();
 		sC = new SuperContainer(a);
 		sC.setSize(750, 750, true);
