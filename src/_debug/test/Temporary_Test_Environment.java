@@ -2,29 +2,44 @@ package _debug.test;
 
 import java.io.PrintWriter;
 
-import game.asset.core.Character;
 import game.asset.util.Asset_Init;
+
+import game.engine.Match;
+
 import teaType.util.io.Reader;
 
 import util.Functions;
 
 public class Temporary_Test_Environment {
+	static PrintWriter out;
+
 	public static void main(String[] args) {
-		PrintWriter out = new PrintWriter(System.out, true);
-		//grantTest(out);
-		//tempReader(out);
-		//levelTest(out);
-		//levelList(out);
+		out = new PrintWriter(System.out, true);
+		//grantTest();
+		//tempReader();
+		//levelTest();
+		//levelList();
+		matcherTest();
 	}
 	
-	private static void grantTest(PrintWriter out) {
+	final static void matcherTest() {
+		Match m = new Match();
+		String s = "Male";
+		if(m.male(s)) {
+			out.println("True");
+			return;
+		}
+		out.println("False");
+	}
+
+	final static void grantTest() {
 		int GRN_MAX = 50;
 		int grn = 45;
 		int temp = 7;
 		out.println(	temp - ((temp + grn) - GRN_MAX));
 	}
-	
-	private static void tempReader(PrintWriter out) {
+
+	final static void tempReader() {
 		Reader r = new Reader();
 		String[] temp1 = r.stringArray("./src/_res/dump/#!lastnames.txt");
 		String[] temp2 = new String[temp1.length];
@@ -39,10 +54,10 @@ public class Temporary_Test_Environment {
 			count++;
 		}
 	}
-	
-	private static void levelTest(PrintWriter out) {
-		final int EXP_STATIC = 1425;
-		final int EXP_MAX = 128256;
+
+	final static void levelTest() {
+		//final int EXP_STATIC = 1425;
+		//final int EXP_MAX = 128256;
 		final int LVL_MAX = 90;
 		double exp = 0;
 		int lvl = 0;
@@ -54,8 +69,8 @@ public class Temporary_Test_Environment {
 			lvl++;
 		}
 	}
-	
-	private static void levelList(PrintWriter out) {
+
+	final static void levelList() {
 		int[] i = Asset_Init.LVL();
 		int count = 0;
 		int temp = 0;

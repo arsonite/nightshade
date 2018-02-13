@@ -21,10 +21,9 @@ import game.engine.exceptions.LevelOutOfBoundsException;
  */
 
 public class Attributes {
-	public int sum;
-	private int let;
+	private int let, sum;
+	final int LVL_CAP = 700;
 	private int[] att;
-	private final int lvlCap = 700;
 	private StringInteger letUtil;
 	private StringInteger[] attUtil;
 
@@ -42,14 +41,14 @@ public class Attributes {
 		attributesToUtil();
 	}
 
-	private final void calculateLethargy() { let = Functions.calculateLethargy(att); }
+	final void calculateLethargy() { let = Functions.calculateLethargy(att); }
 
 	public boolean isGodlike() {
 		int sum = 0;
 		for(int i : att) {
 			sum+=i;
 		}
-		if(sum == lvlCap) {
+		if(sum == LVL_CAP) {
 			return true;
 		} else {
 			return false;
@@ -57,7 +56,7 @@ public class Attributes {
 	}
 
 	public void setAttributes(int fit, int vig, int alc, int bri, int awe, int emp, int trc) throws LevelOutOfBoundsException {
-		if((fit + vig + alc + bri + awe + emp + trc) <= lvlCap) {
+		if((fit + vig + alc + bri + awe + emp + trc) <= LVL_CAP) {
 			att[0] = fit;
 			att[1] = vig;
 			att[2] = alc;
@@ -109,7 +108,7 @@ public class Attributes {
 	 * A method to convert the integer-array of attributes to a StringInteger-array containing
 	 * the descriptive attribute-names with their corresponding value
 	 */
-	private void attributesToUtil() {
+	final void attributesToUtil() {
 		// TODO: Replace with StringReader
 		sum = 0;
 		String[] temp = {"Fitness", "Vigor", "Alacrity", "Brilliance", "Awareness", "Empathy", "Transcendence"};

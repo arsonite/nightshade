@@ -1,14 +1,14 @@
 !String!
 #Doctrine#
--Apathetical-
+-Apathetic-
 -Clerical-
 -Humanist-
 -Materialist-
 -Spiritualist-
 -Holistic-
 -Realist-
--Altruistic-
--Nihilistic-
+-Altruist-
+-Nihilist-
 ;;
 
 !String!
@@ -24,7 +24,9 @@
 !String!
 #Theism#
 -Uncertain-
+-Orthodox-
 -Religious-
+-Philosophist-
 -Agnostic-
 -Skeptic-
 ;;
@@ -32,6 +34,7 @@
 !String!
 #Civil#
 -Unbiased-
+-Bipartisan-
 -Partisan-
 -Lenient-
 -Isolationist-
@@ -53,4 +56,6 @@
 -Tribalist-
 -Pragmatist-
 -Diplomatic-
+-Progressive-
+-Traditionalist-
 ;;

@@ -5,7 +5,9 @@ import util.Functions;
 public class Blood {
 	private String bldType;
 	// TODO: Super-Reader Implementation
-	private final String[] bldHlt = {"Pure", "Healthy", "Polluted", "Infected", "Ill", "Incurable", "Fatal", "Occult", "Mutated"};
+	final String[] bldHlt = {
+			"Pure", "Healthy", "Polluted", "Infected", "Ill", "Incurable", "Fatal", "Occult", "Mutated"
+	};
 	private int state;
 	private double amount, bldFac;
 	private final double MAX_AMOUNT;
@@ -16,7 +18,7 @@ public class Blood {
 		MAX_AMOUNT = amount = Functions.calculateBloodAmount(sex, height, weight);
 		bledOut = bleed = false;
 	}
-	
+
 	protected void setBloodState(int state) {
 		if(state <= bldHlt.length) {
 			this.state = state;
@@ -48,7 +50,7 @@ public class Blood {
 			setBloodState((state-incr));
 		}
 	}
-	
+
 	// TODO: Integration into status object + chance to bleed on hit, based on armor and damage
 	public void bleed(int amountInMilli) {
 		if(amount != 0) {
@@ -59,22 +61,22 @@ public class Blood {
 			bledOut = true;
 		}
 	}
-	
+
 	// TODO: Notification, that you regained x blood or that you still bleed
 	protected void regain(int days) {
 		if(!bleed) {
 			amount+= (int) ((Math.random()*40+30) * days);
 		}
 	}
-	
+
 	public String getBloodtype() { return bldType; }
-	
+
 	public int getBloodState() { return state; }
-	
+
 	public double getAmount() { return amount; }
 	public double getBloodfactor() { return bldFac; }
 	public double getRemainingFactor() { return (amount / MAX_AMOUNT); }
-	
+
 	public boolean isBledOut() {
 		if(bledOut) {
 			return true;

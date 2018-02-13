@@ -1,6 +1,7 @@
 package _debug.test;
 
 import game.asset.Player;
+
 import game.asset.core.Appearance;
 import game.asset.core.Attributes;
 import game.asset.core.Conjuration;
@@ -10,9 +11,9 @@ import game.asset.core.Mind;
 public class Player_Creation {
 	public static void main(String[] args) throws Exception {
 		Appearance app = new Appearance();
-
+		
 		Attributes att = new Attributes();
-		att.random(85);
+		att.random(100);
 
 		Conjuration blast = new Conjuration("Blast", "Non-lethal blast.", 0);
 		blast.setValues(100, 0, 5, 3);

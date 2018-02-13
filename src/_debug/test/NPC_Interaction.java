@@ -2,12 +2,16 @@ package _debug.test;
 
 import game.asset.NPC;
 import game.asset.Player;
+
 import game.asset.core.Appearance;
 import game.asset.core.Attributes;
 import game.asset.core.Mind;
+
 import game.engine.npc.Interact;
+
 import teaType.util.StreamBuffer;
-import teaType.util.statics.Parse;
+
+import teaType.util.rigid.Parse;
 
 public class NPC_Interaction {
 	public static void main(String[] args) throws Exception {

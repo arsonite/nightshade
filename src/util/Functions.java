@@ -23,11 +23,7 @@ public class Functions {
 	 * @return
 	 */
 	public final static boolean roll(double chance) {
-		if((Math.random()) <= chance) {
-			return true;
-		} else {
-			return false;
-		}
+		return Math.random() <= chance;
 	}
 
 	/**

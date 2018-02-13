@@ -12,7 +12,7 @@ import game.engine.exceptions.InvalidSexException;
 import teaType.data.bi.BooleanDouble;
 import teaType.data.bi.StringInteger;
 
-import teaType.util.statics.Random;
+import teaType.util.rigid.Random;
 
 import util.Functions;
 
@@ -46,7 +46,7 @@ public class Character implements Character_I {
 	public void setAppearance() { }
 
 	/* Constructor for first time initiation of Player-object */
-	protected Character(String name, String orig, int age) throws Exception {
+	protected Character(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
 		pn = PN = new String[3];
 		arm = 0.0;
 		lvl = 1;
@@ -55,13 +55,19 @@ public class Character implements Character_I {
 		gold = 0;
 		
 		char_id = Functions.hashID(name.split(" ")[0], name.split(" ")[1]);
+		
+		// temporary //
+		
+		this.app = app;
+		this.att = att;
+		this.mnd = mnd;
+		
+		///////////////
 
 		this.name = name;
 		this.orig = orig;
 		setSex(sex);
 		this.age = age;
-		this.app = app;
-		this.att = att;
 		if(att.getTranscendence() >= 25) {
 			gift = true;
 			calculateGrant();
@@ -69,7 +75,6 @@ public class Character implements Character_I {
 			gift = false;
 		}
 		this.bld = new Blood(getSex(), app.getHeight(), app.getWeight());
-		this.mnd = mnd;
 		sts = new ArrayList<Status>();
 		trt = new ArrayList<Trait>();
 		con = new ArrayList<Conjuration>();

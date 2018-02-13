@@ -13,9 +13,9 @@ public class NPC extends Character {
 	private String[] professions = {"", "", "", "", "", "", "", "", ""};
 	private boolean crucial;
 
-	public NPC(String name, String race, String sex, int age, Appearance appearance, Attributes attributes,
+	public NPC(String name, String orig, String sex, int age, Appearance appearance, Attributes attributes,
 			Mind mind, boolean crucial) throws Exception {
-		super(name, race, age);
+		super(name, orig, sex, age, appearance, attributes, mind);
 		this.crucial = crucial;
 		flag = false;
 	}

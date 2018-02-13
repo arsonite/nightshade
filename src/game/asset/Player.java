@@ -15,8 +15,8 @@ public class Player extends Character {
 	private ArrayList<Skill> skl;
 	private String[] repArr;
 
-	public Player(String name, String race, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
-		super(name, race, age);
+	public Player(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
+		super(name, orig, sex, age, app, att, mnd);
 		fcs = new ArrayList<Focus>();
 		skl = new ArrayList<Skill>();
 		flag = true;

@@ -5,7 +5,7 @@ import game.asset.Player;
 
 import game.engine.Match;
 
-import teaType.util.statics.Parse;
+import teaType.util.rigid.Parse;
 
 public class Interact {
 	public final static void choose(String input, Player p, NPC... arr) throws Exception {
