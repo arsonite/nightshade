@@ -31,10 +31,10 @@ public class Player_Creation {
 		app.setRandom(b.getSex());
 		app.setBodyMeasurements(183, 81500);
 		b.addArmor(150);
-		//b.addItem(sword);
-		//b.equipItem(sword);
-		//b.addConjuration(blast);
-		//att.random(b.getLevel());
+		b.addItem(sword);
+		b.equipItem(sword);
+		b.addConjuration(blast);
+		att.random(b.getLevel());
 		System.out.println(b.retrieveStats());
 	}
 }

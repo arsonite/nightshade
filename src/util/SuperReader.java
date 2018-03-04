@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import teaType.data.bi.StringColor;
+import teaType.data.BiPrimitive;
 
 import teaType.util.io.Reader;
 
@@ -79,7 +79,7 @@ public class SuperReader extends Reader {
 				continue;
 			} else if (appCol.find()) {
 				s = appCol.group();
-				l = new ArrayList<StringColor>();
+				l = new ArrayList<BiPrimitive>();
 				continue;
 			} else {
 				if(cat.find()) {

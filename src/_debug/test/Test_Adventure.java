@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import game.asset.Player;
+
 import game.asset.core.Appearance;
 import game.asset.core.Attributes;
 import game.asset.core.Blood;
@@ -17,8 +18,8 @@ import game.asset.core.Trait;
 import game.engine.Adventure;
 
 //TODO: Für Code und Codelock Thread erstellen
-public class Adventure_Debug extends Adventure {
-	private static final long serialVersionUID = 7454987830282711827L;
+public class Test_Adventure extends Adventure {
+	static final long serialVersionUID = 7454987830282711827L;
 
 	private final String MARK_I = "> ";
 	public String name, sex, race, input;
@@ -38,7 +39,7 @@ public class Adventure_Debug extends Adventure {
 	public ArrayList<Trait> trt;
 	public Player p;
 
-	public Adventure_Debug() {
+	public Test_Adventure() {
 		super();
 		temp = new int[7];
 		attPnts = 100;
@@ -145,43 +146,43 @@ public class Adventure_Debug extends Adventure {
 		case 4:
 			age = parseInteger();
 			att = new Attributes();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(0).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(0).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 5:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[0] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(1).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(1).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 6:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[1] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(2).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(2).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 7:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[2] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(3).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(3).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 8:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[3] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(4).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(4).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 9:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[4] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(5).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(5).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 10:
 			parseInteger();
 			attPnts-= parseInteger();
 			temp[5] = parseInteger();
-			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(6).getString() + "\" (" + attPnts + " XP left)");
+			updateOutput(enter + "Amount XP you want to invest into: \"" + att.getAttribute(6).getFirst() + "\" (" + attPnts + " XP left)");
 			break;
 		case 11:
 			parseInteger();

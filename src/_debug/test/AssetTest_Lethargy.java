@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 
 import game.asset.core.Attributes;
 
-import teaType.data.bi.StringInteger;
+import teaType.data.BiPrimitive;
 
 import teaType.util.StreamBuffer;
 
@@ -19,14 +19,14 @@ public class AssetTest_Lethargy {
 		att2.random(10);
 
 		out.println("Player:\n-------");
-		for(StringInteger si : att.getAttributes(true)) {
-			out.println(si.getString() + ": " + si.getInteger());
+		for(BiPrimitive si : att.getAttributes(true)) {
+			out.println(si.getFirst() + ": " + si.getSecond());
 		}
 		out.println();
 
 		out.println("Enemy:\n------");
-		for(StringInteger si : att2.getAttributes(true)) {
-			out.println(si.getString() + ": " + si.getInteger());
+		for(BiPrimitive si : att2.getAttributes(true)) {
+			out.println(si.getFirst() + ": " + si.getSecond());
 		}
 		out.println();
 

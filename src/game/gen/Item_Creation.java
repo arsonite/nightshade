@@ -4,16 +4,14 @@ import java.util.ArrayList;
 
 import game.asset.core.Item;
 
-import teaType.data.bi.StringDouble;
-
 import teaType.util.io.Writer;
 
 public class Item_Creation {
-	private static final String PATH = "./src/_res/pre/common_items.txt";;
-	private static boolean create, append, linebreak, extraspace;
-	private static ArrayList<Item> items;	
-	private static ArrayList<String> list;
-	private static Writer w;
+	static final String PATH = "./src/_res/pre/common_items.txt";;
+	static boolean create, append, linebreak, extraspace;
+	static ArrayList<Item> items;	
+	static ArrayList<String> list;
+	static Writer w;
 
 	public static void main(String[] args) {
 		create = true;
@@ -44,7 +42,7 @@ public class Item_Creation {
 		printItems();
 		addItems(i);
 		writeItems();
-		
+
 	}
 
 	private final static void printItems(Item... i) {
@@ -112,13 +110,13 @@ public class Item_Creation {
 			}
 		}
 		sb.append("\n");
-		
+
 		/*
 		i.setDamageStats(3500, 35, 350);
 		i.setRarity(5);
 		i.setType(5);
 		i.setWeaponType(10);
-		*/
+		 */
 
 		sb.append(sym[3] + sym[3]);
 		s = sb.toString();

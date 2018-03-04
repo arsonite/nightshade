@@ -8,7 +8,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.Scanner;
 
 public class Central {
-	private static final Object EVENT = null;
+	static final Object EVENT = null;
 	private int code;
 	private String engineOutput, userInput;
 	private Enum<?> command;

@@ -3,11 +3,17 @@ package game.asset.util;
 import java.util.ArrayList;
 
 import teaType.util.Array;
+
 import util.SuperReader;
 
 public class Asset_Init {
+	// TODO: Write class as initial loading class, started in the main, and everything read and loaded after first loading screen
+	// informations all stored in variable. write class as entirely static or singleton
+
+	
 	static SuperReader r = new SuperReader();
 	
+	// TODO: Write paths into main and set paths through methods
 	/* FILE-PATH CONSTANTS */
 	
 	final static String LVL = "./res/raw/#!exp.txt";

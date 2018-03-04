@@ -3,7 +3,7 @@ package game.asset.core;
 import java.util.Arrays;
 import java.util.Random;
 
-import teaType.data.bi.StringInteger;
+import teaType.data.BiPrimitive;
 
 import util.Functions;
 
@@ -24,15 +24,15 @@ public class Attributes {
 	private int let, sum;
 	final int LVL_CAP = 700;
 	private int[] att;
-	private StringInteger letUtil;
-	private StringInteger[] attUtil;
+	private BiPrimitive letUtil;
+	private BiPrimitive[] attUtil;
 
 	public Attributes() {
 		att = new int[7];
 		for(int i = 0; i < att.length; i++) {
 			att[i] = 1;
 		}
-		attUtil = new StringInteger[att.length];
+		attUtil = new BiPrimitive[att.length];
 		attributesToUtil();
 	}
 
@@ -71,7 +71,7 @@ public class Attributes {
 	}
 
 	/**
-	 * A random-generation algorithm, which distributes a certain number of given experience-points
+	 * An efficient random-generation algorithm, which distributes a certain number of given experience-points
 	 * randomly between a fixed amount of attributes.
 	 * 
 	 * @param lvl A parameter containing the amount of character-levels,
@@ -113,11 +113,11 @@ public class Attributes {
 		sum = 0;
 		String[] temp = {"Fitness", "Vigor", "Alacrity", "Brilliance", "Awareness", "Empathy", "Transcendence"};
 		for(int i = 0; i < temp.length; i++) {
-			attUtil[i] = new StringInteger(temp[i], att[i]);
+			attUtil[i] = new BiPrimitive(temp[i], att[i]);
 			sum+= att[i];
 		}
 		calculateLethargy();
-		letUtil = new StringInteger("Lethargy", let);
+		letUtil = new BiPrimitive("Lethargy", let);
 	}
 
 	// TODO: Player-Title dependent on amount of different attributes
@@ -148,7 +148,7 @@ public class Attributes {
 		}
 	}
 
-	public StringInteger getAttribute(int code) {
+	public BiPrimitive getAttribute(int code) {
 		switch(code) {
 		case 0: return attUtil[0];
 		case 1: return attUtil[1];
@@ -163,9 +163,9 @@ public class Attributes {
 		throw new IllegalArgumentException("" + code);
 	}
 
-	public StringInteger[] getAttributes(boolean let) {
+	public BiPrimitive[] getAttributes(boolean let) {
 		if(let) {
-			StringInteger[] temp = new StringInteger[attUtil.length+1];
+			BiPrimitive[] temp = new BiPrimitive[attUtil.length+1];
 			for(int i = 0; i < attUtil.length; i++) {
 				temp[i] = attUtil[i];
 			}

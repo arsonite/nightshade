@@ -2,26 +2,23 @@ package game.asset.core;
 
 import java.util.ArrayList;
 
-import game.asset.util.Character_I;
+import game.asset.util.Asset;
 
 import game.engine.Match;
 
 import game.engine.exceptions.ArmorLimitException;
 import game.engine.exceptions.InvalidSexException;
 
-import teaType.data.bi.BooleanDouble;
-import teaType.data.bi.StringInteger;
-
+import teaType.data.BiPrimitive;
 import teaType.util.rigid.Random;
 
 import util.Functions;
 
-public class Character implements Character_I {
+public class Character extends Asset {
 	protected String name, sex, orig, titl;
 	protected final String[] pn, PN;
 	protected int lvl, exp, age, hlt, stm, grn, gold, maxStm, maxHlt, maxGrn;
 	protected final int EXP_MAX = 128256512, ARM_MAX = 512;
-	protected final int char_id;
 	protected double arm, dmgIn;
 	protected double[] baseDmg, dmg;
 	protected boolean flag, gift;
@@ -46,16 +43,15 @@ public class Character implements Character_I {
 	public void setAppearance() { }
 
 	/* Constructor for first time initiation of Player-object */
-	protected Character(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
+	public Character(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
+		super(name, String.format("%s %s %s", name, orig, sex));
 		pn = PN = new String[3];
 		arm = 0.0;
 		lvl = 1;
 		baseDmg = dmg = new double[3];
 		m = new Match();
 		gold = 0;
-		
-		char_id = Functions.hashID(name.split(" ")[0], name.split(" ")[1]);
-		
+				
 		// temporary //
 		
 		this.app = app;
@@ -93,18 +89,6 @@ public class Character implements Character_I {
 		calculateHealth();
 		calculateStamina();
 		calculateDamage();
-	}
-	
-	/* Constructor for data read in with implementation of SuperReader */
-	protected Character(int char_id) {
-		pn = PN = new String[3];
-		this.char_id = char_id;
-	}
-
-	/* Constructor for first time initiation of NPC-object */
-	protected Character(String name, int age, Appearance app,  Attributes att, Blood bld) {
-		pn = PN = new String[3];
-		char_id = Functions.hashID(name.split(" ")[0], name.split(" ")[1]);
 	}
 
 	private final void equipFist(int side, boolean right) {
@@ -275,7 +259,7 @@ public class Character implements Character_I {
 		return trt;
 	}
 
-	public BooleanDouble inflictDamage() {
+	public BiPrimitive inflictDamage() {
 		return Functions.inflictDamage(dmg);
 	}
 
@@ -525,7 +509,7 @@ public class Character implements Character_I {
 		return new String(PN[i-1]);
 	}
 
-	public StringInteger[] getAllAttributes(boolean let) {
+	public BiPrimitive[] getAllAttributes(boolean let) {
 		return att.getAttributes(let);
 	}
 
@@ -544,9 +528,8 @@ public class Character implements Character_I {
 	public Mind getMindObject() {
 		return mnd;
 	}
-
+	
 	public String retrieveStats() {
-		String stats = "";
 		StringBuilder sb = new StringBuilder();
 		sb.append("Status profile (");
 		if(flag) {
@@ -568,8 +551,8 @@ public class Character implements Character_I {
 		}
 
 		sb.append("\n▪ Attributes:");
-		for(StringInteger a : att.getAttributes(true)) {
-			sb.append("\n   » " + a.getString() + " - " + a.getInteger());
+		for(BiPrimitive a : att.getAttributes(true)) {
+			sb.append("\n   » " + a.getFirst() + " - " + a.getSecond());
 		}
 		sb.append("\n");
 
@@ -630,8 +613,6 @@ public class Character implements Character_I {
 				getDamage(), getBaseDamage(), (eq.get(8).getDamage() + eq.get(11).getDamage()), (getBaseDamage() * getCriticalDamage()),
 				(100 * getBaseCriticalDamage() - 100), (100 * (eq.get(8).getCriticalDamage() + eq.get(11).getCriticalDamage())), (getCriticalChance() * 100),
 				(getBaseCriticalChance() * 80), ((eq.get(8).getCriticalChance() + eq.get(11).getCriticalChance()) * 100)));
-		stats = sb.toString();
-		sb = null;
-		return stats;
+		return sb.toString();
 	}
 }

@@ -1,6 +1,6 @@
 package _debug;
 
-import _debug.test.Adventure_Debug;
+import _debug.test.Test_Adventure;
 
 import game.engine.Adventure;
 import game.engine.Adventure_I;
@@ -22,8 +22,13 @@ public class Main {
 		} else {
 			launch();
 		}
+		massHash();
 	}
 	
+	final static void massHash() {
+		
+	}
+
 	public static void launch() {
 		gsS = new SelectionScreen(true);
 		gsS.setSize(300, 700, false);
@@ -31,7 +36,7 @@ public class Main {
 	}
 	
 	public static void debug() {
-		Adventure_I AD = new Adventure_Debug();
+		Adventure_I AD = new Test_Adventure();
 		sC = new SuperContainer(AD);
 		sC.setSize(750, 750, true);
 		sC.display(true);

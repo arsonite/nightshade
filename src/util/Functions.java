@@ -6,7 +6,7 @@ import game.asset.core.Blood;
 import game.asset.core.Mind;
 import game.asset.core.Trait;
 
-import teaType.data.bi.BooleanDouble;
+import teaType.data.BiPrimitive;
 
 /**
  * The utility-class {@code Functions} is a collection of mathematical functions and algorithms
@@ -32,15 +32,15 @@ public class Functions {
 	 * @return
 	 */
 	// TODO: Revamp for internal double system and external int system
-	public final static BooleanDouble inflictDamage(double[] dmgPack) {
+	public final static BiPrimitive inflictDamage(double[] dmgPack) {
 		double dmgCap = dmgPack[0];
 		double baseFluct = dmgCap * 1.0875;
 		double min = dmgCap * 0.875;
 		double max = baseFluct - min;
 		if(roll(dmgPack[1])) {
-			return new BooleanDouble(true, (dmgPack[2]*= (Math.random()*max+min)));
+			return new BiPrimitive(true, (dmgPack[2]*= (Math.random()*max+min)));
 		} else {
-			return new BooleanDouble(false, new Double(Math.random()*max+min));
+			return new BiPrimitive(false, new Double(Math.random()*max+min));
 		}
 	}
 

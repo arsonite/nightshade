@@ -17,7 +17,7 @@ Trait-Levels:
 	4. Prime
 	5. Supreme
 	6. Extraordinary
-	7. 
+	7. Inhuman
 
 Trait-List (with IDs and level):
 	Pickable:

@@ -4,6 +4,13 @@ import java.util.regex.Pattern;
 
 import game.asset.util.Asset_Init;
 
+/**
+ * The class {@code Match}
+ * 
+ * @since JDK 1.91 ~ <i>2018</i>
+ * @author Burak Günaydin <b>{@code (arsonite)}</b>
+ * @see
+ */
 public class Match {
 	final String[] arr1, arr2;
 
@@ -11,22 +18,33 @@ public class Match {
 		String[] s = Asset_Init.MATCH();
 		arr1 = new String[s.length];
 		arr2 = new String[s.length];
-		StringBuilder sb = new StringBuilder();
 		for(int i = 0; i < s.length; i++) {
-			sb.append(Character.toString(s[i].charAt(0)).toUpperCase());
-			sb.append(sb.substring(0, 1).toLowerCase());
-			arr1[i] = sb.toString();
-			arr2[i] = s[i].substring(1, s[i].length());
-			sb.setLength(0);
+			String[] arr = toRegex(s[i]);
+			arr1[i] = arr[0];
+			arr2[i] = arr[1];
 		}
 	}
 
+	/**
+	 * 
+	 * 
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
 	final Pattern compilePattern(String p1, String p2) {
-		return Pattern.compile("^[" + p1 + "]+[" + p2 + "]+?.*");
+		return Pattern.compile("^[" + p1 + "]+" + p2 + ".*");
 	}
 
 	final boolean match(int i, String input) {
 		return compilePattern(arr1[i], arr2[i]).matcher(input).find();
+	}
+	
+	final String[] toRegex(String s) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(Character.toString(s.charAt(0)).toUpperCase());
+		sb.append(sb.substring(0, 1).toLowerCase());
+		return new String[] {sb.toString(), s.substring(1, s.length())};
 	}
 
 	public final boolean north(String input) { return match(0, input); }

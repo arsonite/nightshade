@@ -7,12 +7,12 @@ import javax.swing.JTextField;
 
 public class ActionController implements KeyListener {
 	private String input;
-	private final int USER_INPUT = 10;
-	private final int D = 68;
-	private final int E = 69;
-	private final int B = 66;
-	private final int U = 85;
-	private final int G = 71;
+	final int USER_INPUT = 10;
+	final int D = 68;
+	final int E = 69;
+	final int B = 66;
+	final int U = 85;
+	final int G = 71;
 	private boolean[] debug;
 	private Enum<?> command;
 	private Central c;
@@ -28,12 +28,12 @@ public class ActionController implements KeyListener {
 		case USER_INPUT:
 			c.parseUserInput(((JTextField) e.getSource()).getText());
 			input = c.getUserInput();
-			
+
 			// TODO: Debug
 			/*#############################################*/
 			System.out.println("ActionController: " + input);
 			/*#############################################*/
-			
+
 			for(boolean b : debug) {
 				if(b) {
 					// TODO: Insert activation of debug mode
@@ -61,18 +61,18 @@ public class ActionController implements KeyListener {
 			}
 			break;
 		}
-//		validateCommand();
+		//		validateCommand();
 	}
-	
+
 	private void validateCommand() {
 		switch(input) {		
-		
+
 		}
 	}
 
 	public void keyReleased(KeyEvent e) {
 	}
-	
+
 	public void keyTyped(KeyEvent e) {
 	}
 }

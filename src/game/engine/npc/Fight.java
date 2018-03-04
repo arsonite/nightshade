@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import game.asset.NPC;
 import game.asset.Player;
 
-import teaType.data.bi.BooleanDouble;
+import teaType.data.BiPrimitive;
 
 import teaType.util.StreamBuffer;
 
 class Fight {
 	private int count, round, elapse;
-	private BooleanDouble dmg;
+	private BiPrimitive dmg;
 	private ArrayList<NPC> list;
 
 	public Fight(Player p, NPC... nArr) throws Exception {
@@ -60,31 +60,31 @@ class Fight {
 				System.out.flush();
 				if(random < 0.5) {
 					dmg = p.inflictDamage();
-					n.takeDamage(dmg.getDouble());
+					n.takeDamage((double) dmg.getSecond());
 					System.out.printf("!%n%d It's %s's turn! %s did %.0f damage! %s has %d health left.%n",
-							count, p.getName(), p.getName(), dmg.getDouble(), n.getName(), n.getHealth());
+							count, p.getName(), p.getName(), dmg.getSecond(), n.getName(), n.getHealth());
 				} else {
 					dmg = n.inflictDamage();
-					p.takeDamage(dmg.getDouble());
+					p.takeDamage((double) dmg.getSecond());
 					System.out.printf("!%n%d It's %s's turn! %s did %.0f damage! %s has %d health left.%n",
-							count, n.getName(), n.getName(), dmg.getDouble(), p.getName(), p.getHealth());
+							count, n.getName(), n.getName(), dmg.getSecond(), p.getName(), p.getHealth());
 				}
 			} else if(count % p.getAttributesObject().getLethargy() == 0) {
 				dmg = p.inflictDamage();
-				n.takeDamage(dmg.getDouble());
+				n.takeDamage((double) dmg.getSecond());
 				System.out.printf("%d It's %s's turn! %s did %.0f damage! %s has %d health left.%n",
-						count, p.getName(), p.getName(), dmg.getDouble(), n.getName(), n.getHealth());
+						count, p.getName(), p.getName(), dmg.getSecond(), n.getName(), n.getHealth());
 			} else if(count % n.getAttributesObject().getLethargy() == 0) {
 				dmg = n.inflictDamage();
-				p.takeDamage(dmg.getDouble());
+				p.takeDamage((double) dmg.getSecond());
 				System.out.printf("%d It's %s's turn! %s did %.0f damage! %s has %d health left.%n",
-						count, n.getName(), n.getName(), dmg.getDouble(), p.getName(), p.getHealth());
+						count, n.getName(), n.getName(), dmg.getSecond(), p.getName(), p.getHealth());
 			}
-			if(dmg.getBoolean()) {
+			if((boolean) dmg.getFirst()) {
 				System.err.println("Critical Hit! Ouch!");
 			}
-			dmg.setBoolean(false);
-			dmg.setDouble(0);
+			dmg.setFirst(false);
+			dmg.setSecond(0);
 			if(n.isDead() && list.contains(n)) {
 				list.remove(n);
 				System.err.println(n.getName() + " is dead.");

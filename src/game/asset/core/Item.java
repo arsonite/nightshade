@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import game.asset.util.Asset;
 import game.asset.util.Asset_Init;
 
-import teaType.data.bi.StringBoolean;
-import teaType.data.bi.StringDouble;
-import teaType.data.bi.StringInteger;
+import teaType.data.BiPrimitive;
 
 import teaType.util.Array;
 
@@ -17,53 +15,51 @@ public class Item extends Asset {
 	private int[] val;
 	private double[] dmgStat;
 	private boolean[] bool;
-	private StringInteger rare, eq;
-	private StringInteger[] vals;
-	private StringDouble[] dmgStats;
-	private StringBoolean[] use;
+	private BiPrimitive rare, eq;
+	private BiPrimitive[] vals, dmgStats, use;
 	private ArrayList<Status> sts;
 
 	public Item(String name, String desc) {
 		super(name, desc);
 		val = new int[5];
 		bool = new boolean[10];
-		eq = new StringInteger("", 0);
-		vals = new StringInteger[val.length];
-		use = new StringBoolean[bool.length];
+		eq = new BiPrimitive("", 0);
+		vals = new BiPrimitive[val.length];
+		use = new BiPrimitive[bool.length];
 		sts = new ArrayList<Status>();
 	}
 
 	public final void setEquipCode(int code) {
 		if(bool[5]) {
-			eq.setInteger(code);
+			eq.setSecond(code);
 			integerToUtil();
 		}
 	}
 
-	private final void integerToUtil() {
-		eq.setString(Asset_Init.ITEM(false).get(3).get(eq.getInteger()+1));
+	final void integerToUtil() {
+		eq.setFirst(Asset_Init.ITEM(false).get(3).get((int) eq.getSecond()+1));
 	}
 
-	private final void valuesToUtil() {
+	final void valuesToUtil() {
 		for(int i = 0; i < vals.length; i++) {
-			vals[i] = new StringInteger(Asset_Init.ITEM(false).get(4).get(i+1), val[i]);
+			vals[i] = new BiPrimitive(Asset_Init.ITEM(false).get(4).get(i+1), val[i]);
 		}
 	}
 
-	private final void damageToUtil() {
+	final void damageToUtil() {
 		for(int i = 0; i < dmgStat.length; i++) {
-			dmgStats[i] = new StringDouble(Asset_Init.ITEM(false).get(5).get(i+1), dmgStat[i]);
+			dmgStats[i] = new BiPrimitive(Asset_Init.ITEM(false).get(5).get(i+1), dmgStat[i]);
 		}
 	}
 
-	private final void usageToUtil() {
+	final void usageToUtil() {
 		for(int i = 0; i < bool.length; i++) {
-			use[i] = new StringBoolean(Asset_Init.ITEM(false).get(2).get(i+1), bool[i]);
+			use[i] = new BiPrimitive(Asset_Init.ITEM(false).get(2).get(i+1), bool[i]);
 		}
 	}
 
 	public void setRarity(int rare) {
-		this.rare = new StringInteger(Asset_Init.ITEM(false).get(1).get(rare), rare);
+		this.rare = new BiPrimitive(Asset_Init.ITEM(false).get(1).get(rare), rare);
 	}
 
 	public void setType(int type) {
@@ -86,9 +82,9 @@ public class Item extends Asset {
 	}
 
 	public void setDamageStats(double dmg, double critChance, double critDmg) {
-		if(use[0].getBoolean()) {
+		if((boolean) use[0].getSecond()) {
 			dmgStat = new double[3];
-			dmgStats = new StringDouble[dmgStat.length];
+			dmgStats = new BiPrimitive[dmgStat.length];
 			dmgStat[0] = dmg;
 			dmgStat[1] = critChance/100;
 			dmgStat[2] = critDmg/100;
@@ -114,28 +110,28 @@ public class Item extends Asset {
 	public void setStatus() {
 	}
 
-	public String getEquipName() { return eq.getString(); }
-	public String getRarityName() { return rare.getString(); }
+	public String getEquipName() { return (String) eq.getFirst(); }
+	public String getRarityName() { return (String) rare.getFirst(); }
 	public String getType() { return type; }
 	public String getWeaponType() { return wpnType; }
-	
+
 	public String[] getTypes() { return Array.fromArrayList(Asset_Init.ITEM(true).get(0)); }
 	public String[] getRarities() { return Array.fromArrayList(Asset_Init.ITEM(true).get(1)); }
 
-	public int getEquipCode() { return eq.getInteger(); }
-	public int getRarityNumber() { return rare.getInteger(); }
+	public int getEquipCode() { return (int) eq.getSecond(); }
+	public int getRarityNumber() { return (int) rare.getSecond(); }
 	public int getProtection() { return val[0]; }
 	public int getDurability() { return val[1]; }
 	public int getWeight() { return val[2]; }
 	public int getLoad() { return val[3]; }
 	public int getValue() { return val[4]; }
-	
+
 	public int[] getValues() { return val; }
 
 	public double getDamage() { return dmgStat[0]; }
 	public double getCriticalChance()  { return dmgStat[1]; }
 	public double getCriticalDamage() { return dmgStat[2]; }
-	
+
 	public double[] getDamageStats() { return dmgStat; }
 
 	public boolean isDestructive() { return bool[0]; }
@@ -146,22 +142,22 @@ public class Item extends Asset {
 	public boolean isLootable() { return bool[5]; }
 	public boolean isOwned() { return bool[6]; }
 	public boolean isCrucial() { return bool[7]; }
-	
-	public StringInteger getEquip() { return eq; }
-	public StringInteger getRarity() { return rare; }
-	
-	public StringInteger[] getAllValues() { return vals; }
-	
-	public StringDouble[] getAllDamageStats() { return dmgStats; }
 
-	public StringBoolean[] getUsability() { return use; }
-	
+	public BiPrimitive getEquip() { return eq; }
+	public BiPrimitive getRarity() { return rare; }
+
+	public BiPrimitive[] getAllValues() { return vals; }
+
+	public BiPrimitive[] getAllDamageStats() { return dmgStats; }
+
+	public BiPrimitive[] getUsability() { return use; }
+
 	public ArrayList<Status> getStatus() { return sts; }
-	
+
 	public int[] getUsabilityCodes() {
 		int[] arr = new int[use.length];
 		for(int i = 0; i < use.length; i++) {
-			if(use[i].getBoolean()) {
+			if((boolean) use[i].getSecond()) {
 				arr[i] = 1;
 			} else {
 				arr[i] = 0;
@@ -180,22 +176,22 @@ public class Item extends Asset {
 		sb.append("\n▪ Description: " + desc);
 		sb.append("\n");
 		sb.append("\n▪ Info: ");
-		sb.append(String.format("%n   » Equipment-Slot %d: %s", eq.getInteger(), eq.getString()));
-		sb.append(String.format("%n   » Rarity: %s", rare.getString()));
+		sb.append(String.format("%n   » Equipment-Slot %d: %s", eq.getSecond(), eq.getFirst()));
+		sb.append(String.format("%n   » Rarity: %s", rare.getFirst()));
 		sb.append(String.format("%n   » Item-Type: %s", type));
 		//		if(!wpnType.isEmpty()) {
 		sb.append(String.format("%n   » Weapon-Type: %s", wpnType));
 		//		}
 		sb.append("\n");
 		sb.append("\n▪ Stats:");
-		for(StringInteger si : vals) {
-			sb.append(String.format("%n   » %s: %d", si.getString(), si.getInteger()));
+		for(BiPrimitive si : vals) {
+			sb.append(String.format("%n   » %s: %d", si.getFirst(), si.getSecond()));
 		}
 		sb.append("\n");
 		sb.append("\n▪ Usability:");
-		for(StringBoolean b : use) {
-			sb.append(String.format("%n   » %s: ", b.getString()));
-			if(b.getBoolean()) {
+		for(BiPrimitive b : use) {
+			sb.append(String.format("%n   » %s: ", b.getFirst()));
+			if((boolean) b.getSecond()) {
 				sb.append("Yes");
 			} else {
 				sb.append("No");
@@ -206,10 +202,10 @@ public class Item extends Asset {
 			sb.append("\n▪ Damage-Stats:");
 			for(int i = 0; i < dmgStats.length; i++) {
 				if(i == 0) {
-					sb.append(String.format("%n   » %s: %.0f", dmgStats[i].getString(), dmgStats[i].getDouble()));
+					sb.append(String.format("%n   » %s: %.0f", dmgStats[i].getFirst(), dmgStats[i].getSecond()));
 					continue;
 				}
-				sb.append(String.format("%n   » %s: %.2f%%", dmgStats[i].getString(), dmgStats[i].getDouble()*100));
+				sb.append(String.format("%n   » %s: %.2f%%", dmgStats[i].getFirst(), (double) dmgStats[i].getSecond()*100));
 			}
 		}
 		s = sb.toString();

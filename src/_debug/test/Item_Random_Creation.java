@@ -12,6 +12,7 @@ public class Item_Random_Creation {
 		i.setUsability(true, false, false, false, false, true, false, false, false, false);
 		i.setEquipCode(11);
 		i.setDamageStats(1000, 35, 300);
+		i.setRarity(1);
 		out.println(i.retrieveStats());
 		
 		/*
