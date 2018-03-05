@@ -10,12 +10,13 @@ import game.engine.exceptions.ArmorLimitException;
 import game.engine.exceptions.InvalidSexException;
 
 import teaType.data.BiPrimitive;
+
 import teaType.util.rigid.Random;
 
 import util.Functions;
 
 public class Character extends Asset {
-	protected String name, sex, orig, titl;
+	protected String sex, orig, titl;
 	protected final String[] pn, PN;
 	protected int lvl, exp, age, hlt, stm, grn, gold, maxStm, maxHlt, maxGrn;
 	protected final int EXP_MAX = 128256512, ARM_MAX = 512;
@@ -42,7 +43,6 @@ public class Character extends Asset {
 	
 	public void setAppearance() { }
 
-	/* Constructor for first time initiation of Player-object */
 	public Character(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
 		super(name, String.format("%s %s %s", name, orig, sex));
 		pn = PN = new String[3];
@@ -90,6 +90,8 @@ public class Character extends Asset {
 		calculateStamina();
 		calculateDamage();
 	}
+	
+	
 
 	private final void equipFist(int side, boolean right) {
 		switch(side) {

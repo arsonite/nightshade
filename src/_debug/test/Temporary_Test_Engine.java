@@ -33,7 +33,7 @@ public class Temporary_Test_Engine {
 					Attributes att;
 					Mind mnd;
 					
-					p = new Player(name, orig, sex, age, app, att, mnd);
+					//p = new Player(name, orig, sex, age, app, att, mnd);
 				} else {
 					System.err.println("You already created a player! " + p.getName() + ".");
 				}

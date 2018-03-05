@@ -2,57 +2,91 @@ package game.asset.core;
 
 import game.asset.util.Asset;
 
-import teaType.data.TeaType;
-
 public class Location extends Asset {
-	private int size;
-	private TeaType<Location> loc;
+	private int size, d;
+	private Asset[][] arr;
+
+	public Location() {
+		init(0);
+	}
+
+	public Location(int size) {
+		init(size);
+	}
 
 	public Location(String name, String desc) {
 		super(name, desc);
-		loc = new TeaType<Location>();
-		size = loc.size();
+		init(0);
 	}
 
 	public Location(String name, String desc, int size) {
 		super(name, desc);
-		loc = new TeaType<Location>(size);
-		this.size = loc.size();
+		init(size);
 	}
-	
-	public Location() {
-		super("", "");
-		loc = new TeaType<Location>();
-		size = loc.size();
+
+	final void init(int size) {
+		this.size = size;
+		arr = new Asset[size][size];
+		d = (int) (Math.log10(size) + 1);
+		if(d < 0) {
+			d = 0;
+		}
 	}
-	
-	public Location(int size) {
-		super("", "");
-		loc = new TeaType<Location>(size);
-		this.size = loc.size();
-	}
-	
+
 	public final void addLocation() {
-		
+
 	}
-	
+
 	public final void removeLocation() {
-		
+
 	}
-	
-	public final void addSubLocation(Location l) { loc.add(l); }
-	
-	public final void removeSubLocation(Location l) { loc.remove(l); }
-	
-	public final void moveCharacter(Character c, int id) {
-		
+
+	public final void addSubLocation(Location l) {
+
 	}
-	
-	public final void moveEntity() {
-		
+
+	public final void removeSubLocation(Location l) {
+
 	}
-	
+
+	public final void addAsset() {
+
+	}
+
+	public final void removeAsset() {
+
+	}
+
+	public final void moveAsset(Location l, Asset a) {
+
+	}
+
 	public final void print() {
-		
+		String s = String.format("%s-Name: %s | Description: %s | Slot-Size: %d",
+				this.getClass().getSimpleName(), name, desc, size);
+		System.out.println(s);
+		for(int i = 0; i < s.length(); i++) {
+			System.out.print("-");
+		}
+		System.out.println();
+		arr[0][0] = null;
+		for(int x = 0; x < arr.length; x++) {
+			System.out.print("[" + x + "]");
+			for(int y = 1; y < arr.length; y++) {
+				System.out.print("[" + y + "]");
+			}
+			System.out.println();
+		}
+	}
+
+	final String assemble(int i) {
+		StringBuilder sb = new StringBuilder();
+		String ol, ul, l, w;
+		ol = "‾";
+		ul = "_";
+		l = "|";
+		w = " ";
+		sb.append("");
+		return sb.toString();
 	}
 }

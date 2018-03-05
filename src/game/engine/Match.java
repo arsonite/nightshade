@@ -12,6 +12,8 @@ import game.asset.util.Asset_Init;
  * @see
  */
 public class Match {
+	
+	/** String-array for */
 	final String[] arr1, arr2;
 
 	public Match() {
