@@ -1,10 +1,8 @@
 package _debug.test;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import game.asset.Player;
-
 import game.asset.core.Appearance;
 import game.asset.core.Attributes;
 import game.asset.core.Blood;
@@ -14,8 +12,8 @@ import game.asset.core.Inventory;
 import game.asset.core.Mind;
 import game.asset.core.Skill;
 import game.asset.core.Trait;
-
 import game.engine.Adventure;
+import teaType.data.TeaType;
 
 //TODO: Für Code und Codelock Thread erstellen
 public class Test_Adventure extends Adventure {
@@ -35,8 +33,8 @@ public class Test_Adventure extends Adventure {
 	public Focus foc;
 	public Inventory inv;
 	public Mind mnd;
-	public ArrayList<Skill> skls;
-	public ArrayList<Trait> trt;
+	public TeaType<Skill> skls;
+	public TeaType<Trait> trt;
 	public Player p;
 
 	public Test_Adventure() {

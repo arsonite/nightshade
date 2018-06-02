@@ -1,6 +1,6 @@
 package game.asset.core;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 
 import teaType.util.Array;
 import util.SuperReader;
@@ -10,21 +10,21 @@ public class Mind {
 	private final String[] mntlStat;
 	private final String[] mntlProg;
 	private String[] pol;
-	private final ArrayList<ArrayList<String>> polArr;
+	private final TeaType<TeaType<String>> polArr;
 	private int sta;
 	private int prg;
 	private int mtl;
 
 	public Mind() {
 		SuperReader r = new SuperReader();
-		ArrayList<ArrayList<String>> temp = r.DEBUG_fileRegexToStringArrayList("./res/raw/#!mnd.txt", true);
+		TeaType<TeaType<String>> temp = r.DEBUG_fileRegexToStringTeaType("./res/raw/#!mnd.txt", true);
 		
-		mntlStat = Array.fromArrayList(temp.get(0));
-		mntlProg = Array.fromArrayList(temp.get(1));
+		mntlStat = Array.fromTeaType(temp.get(0));
+		mntlProg = Array.fromTeaType(temp.get(1));
 		
 		mtl = 1000;
 		setProgress();
-		polArr = r.DEBUG_fileRegexToStringArrayList("./res/raw/#!pol.txt", false);
+		polArr = r.DEBUG_fileRegexToStringTeaType("./res/raw/#!pol.txt", false);
 	}
 	
 	public void random() {
@@ -111,7 +111,7 @@ public class Mind {
 	
 	public String[] getCivicBeliefs() { return pol; }
 	
-	public ArrayList<ArrayList<String>> DEBUG_displayAllCivicOptions() { return polArr; }
+	public TeaType<TeaType<String>> DEBUG_displayAllCivicOptions() { return polArr; }
 
 	public boolean isGood() {
 		if (sta == 0) {

@@ -1,6 +1,6 @@
 package game.asset.core;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 
 import game.asset.util.Asset;
 import game.asset.util.Asset_Init;
@@ -17,7 +17,7 @@ public class Item extends Asset {
 	private boolean[] bool;
 	private BiPrimitive rare, eq;
 	private BiPrimitive[] vals, dmgStats, use;
-	private ArrayList<Status> sts;
+	private TeaType<Status> sts;
 
 	public Item(String name, String desc) {
 		super(name, desc);
@@ -26,7 +26,7 @@ public class Item extends Asset {
 		eq = new BiPrimitive("", 0);
 		vals = new BiPrimitive[val.length];
 		use = new BiPrimitive[bool.length];
-		sts = new ArrayList<Status>();
+		sts = new TeaType<Status>();
 	}
 
 	public final void setEquipCode(int code) {
@@ -115,8 +115,8 @@ public class Item extends Asset {
 	public String getType() { return type; }
 	public String getWeaponType() { return wpnType; }
 
-	public String[] getTypes() { return Array.fromArrayList(Asset_Init.ITEM(true).get(0)); }
-	public String[] getRarities() { return Array.fromArrayList(Asset_Init.ITEM(true).get(1)); }
+	public String[] getTypes() { return Array.fromTeaType(Asset_Init.ITEM(true).get(0)); }
+	public String[] getRarities() { return Array.fromTeaType(Asset_Init.ITEM(true).get(1)); }
 
 	public int getEquipCode() { return (int) eq.getSecond(); }
 	public int getRarityNumber() { return (int) rare.getSecond(); }
@@ -152,7 +152,7 @@ public class Item extends Asset {
 
 	public BiPrimitive[] getUsability() { return use; }
 
-	public ArrayList<Status> getStatus() { return sts; }
+	public TeaType<Status> getStatus() { return sts; }
 
 	public int[] getUsabilityCodes() {
 		int[] arr = new int[use.length];

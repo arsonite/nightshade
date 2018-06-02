@@ -1,11 +1,11 @@
 package _debug.old;
 
-import java.util.ArrayList;
+import teaType.data.TeaType;
 
 class Inventory {
 	
 	public static void checkItem(int x, int y, String item,
-            ArrayList<String> inventory, Room[][] room) {
+            TeaType<String> inventory, Room[][] room) {
 		
 		// Check if item is a valid room item
 		boolean validRoomItem = false;
@@ -42,7 +42,7 @@ class Inventory {
 		}
     }
 
-    public static void print(ArrayList<String> inventory) {
+    public static void print(TeaType<String> inventory) {
 
         System.out.println("Inventory:");
         for (String item : inventory) {

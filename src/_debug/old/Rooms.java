@@ -1,6 +1,6 @@
 package _debug.old;
 
-import java.util.ArrayList;
+import teaType.data.TeaType;
 
 class Rooms {
 
@@ -57,10 +57,10 @@ class Room {
     private int number;
     private String name;
     private String description;
-    public ArrayList<String> items = new ArrayList<>();
+    public TeaType<String> items = new TeaType<>();
 
     public Room(int number, String name, String description,
-            ArrayList<String> items) {
+            TeaType<String> items) {
     }
 
     public void setNumber(int number) {
@@ -95,7 +95,7 @@ class Room {
         this.items.remove(item);
     }
 
-    public ArrayList<String> getItems() {
+    public TeaType<String> getItems() {
         return this.items;
     }
 }

@@ -21,10 +21,18 @@ public class Temporary_Test_Engine {
 		out = new PrintWriter(System.out, true);
 		Match m = new Match();
 		p = null;
+		System.out.println("Your options:" +
+				"\n0. Exit = 'exit'" +
+				"\n1. Character-Creation = 'cc'" + 
+				"\n2. Loadline = 'load'" + 
+				"\n3. " + 
+				"\n4. " + 
+				"\n5. "
+				);
 		while(true) {
 			String input = new Scanner(System.in).nextLine();
 			System.err.println("You typed: " + input + "\n");
-			
+
 			if(input.equals("create player") && p != null) {
 				if(p != null) {
 					String name, orig, sex;
@@ -32,17 +40,17 @@ public class Temporary_Test_Engine {
 					Appearance app;
 					Attributes att;
 					Mind mnd;
-					
+
 					//p = new Player(name, orig, sex, age, app, att, mnd);
 				} else {
 					System.err.println("You already created a player! " + p.getName() + ".");
 				}
 			}
-			
+
 			if(input.equals("take")) {
-				
+
 			}
-			
+
 			if(m.suicide(input)) {
 				System.exit(0);
 			}

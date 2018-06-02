@@ -2,11 +2,12 @@ package game.asset.core;
 
 import java.io.PrintWriter;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
 import game.asset.util.Asset_Init;
+
+import teaType.data.TeaType;
 
 import util.Functions;
 
@@ -41,7 +42,7 @@ public class Appearance {
 	// TODO: Link with BMI and average as conditions and references for realistic proportions
 	public void setRandom(String sex) {
 		// TODO: More efficient algorithm
-		ArrayList<ArrayList<?>> temp = Asset_Init.APP();
+		TeaType<TeaType<?>> temp = Asset_Init.APP();
 		
 		while(bmi <= 23.0 || bmi >= 26.0) {
 			hght = Math.random()*60+150;
@@ -71,7 +72,7 @@ public class Appearance {
 
 	public Hashtable<Object, Object> getAppearance() { return t; }
 
-	public ArrayList<ArrayList<?>> getList() { return Asset_Init.APP(); }
+	public TeaType<TeaType<?>> getList() { return Asset_Init.APP(); }
 
 	public void DEBUG_printAvailableOptions() {
 		PrintWriter out = new PrintWriter(System.out, true);

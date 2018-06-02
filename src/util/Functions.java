@@ -1,12 +1,11 @@
 package util;
 
-import java.util.ArrayList;
-
 import game.asset.core.Blood;
 import game.asset.core.Mind;
 import game.asset.core.Trait;
 
 import teaType.data.BiPrimitive;
+import teaType.data.TeaType;
 
 /**
  * The utility-class {@code Functions} is a collection of mathematical functions and algorithms
@@ -53,7 +52,7 @@ public class Functions {
 	 * @param trt
 	 * @return
 	 */
-	public final static double[] calculateDamage(int vig, int alc, Mind m, ArrayList<Trait> trt) {	
+	public final static double[] calculateDamage(int vig, int alc, Mind m, TeaType<Trait> trt) {	
 		double dmgCap = 1.0;
 		double critChance = 0.05;
 		double critDmg = 1.0;
@@ -118,7 +117,7 @@ public class Functions {
 	 * @return
 	 */
 	// TODO: Balancing
-	public final static int calculateGrant(int trc, Mind m, ArrayList<Trait> t) {
+	public final static int calculateGrant(int trc, Mind m, TeaType<Trait> t) {
 		return new Integer((int) betaFormula(trc));
 	}
 

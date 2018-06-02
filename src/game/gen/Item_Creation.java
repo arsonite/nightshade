@@ -1,16 +1,16 @@
 package game.gen;
 
-import java.util.ArrayList;
-
 import game.asset.core.Item;
+
+import teaType.data.TeaType;
 
 import teaType.util.io.Writer;
 
 public class Item_Creation {
 	static final String PATH = "./src/_res/pre/common_items.txt";;
 	static boolean create, append, linebreak, extraspace;
-	static ArrayList<Item> items;	
-	static ArrayList<String> list;
+	static TeaType<Item> items;	
+	static TeaType<String> list;
 	static Writer w;
 
 	public static void main(String[] args) {
@@ -20,8 +20,8 @@ public class Item_Creation {
 		extraspace = false;
 
 		w = new Writer(PATH);
-		items = new ArrayList<Item>();
-		list = new ArrayList<String>();
+		items = new TeaType<Item>();
+		list = new TeaType<String>();
 
 		Item i = new Item("Sword of the Sun", "A peculiar sword, allegedly forged in the warmth of a distant star.");
 		i.setUsability(true, true, true, true, true, true, true, true, false, false);
@@ -61,7 +61,7 @@ public class Item_Creation {
 		for(Item i : items) {
 			list.add(convertToString(i));
 		}
-		w.arraylist(list, create, append, linebreak, extraspace);
+		w.teaType(list, create, append, linebreak, extraspace);
 	}
 
 	public static String convertToString(Item item) {

@@ -1,8 +1,8 @@
 package _debug.old;
 
-import java.util.ArrayList;
-
 import game.engine.Match;
+
+import teaType.data.TeaType;
 
 public class Main {
 
@@ -18,7 +18,7 @@ public class Main {
         Rooms.print(room, x, y);
 
         // Load inventory
-        ArrayList<String> inventory = new ArrayList<>();
+        TeaType<String> inventory = new TeaType<>();
         Match m = new Match();
 
         // Start game

@@ -1,6 +1,6 @@
 package game.asset.util;
 
-import java.util.ArrayList;
+import teaType.data.TeaType;
 
 import teaType.util.Array;
 
@@ -24,21 +24,21 @@ public class Asset_Init {
 	/* ------------------- */
 	
 	public final static String[] MATCH() {
-		return Array.fromArrayList(r.DEBUG_fileRegexToStringArrayList(MAT, true).get(0));
+		return Array.fromTeaType(r.DEBUG_fileRegexToStringTeaType(MAT, true).get(0));
 	}
 
-	public final static ArrayList<ArrayList<?>> APP() {
-		return r.DEBUG_fileRegexToArrayList();
+	public final static TeaType<TeaType<?>> APP() {
+		return r.DEBUG_fileRegexToTeaType();
 	}
 
 	public final static int[] LVL() {
 		return r.DEBUG_fileRegexToIntegerArray(LVL);
 	}
 
-	public final static ArrayList<ArrayList<String>> ITEM(boolean rmvTag) {
-		ArrayList<ArrayList<String>> list = r.DEBUG_fileRegexToStringArrayList(ITM, false);
+	public final static TeaType<TeaType<String>> ITEM(boolean rmvTag) {
+		TeaType<TeaType<String>> list = r.DEBUG_fileRegexToStringTeaType(ITM, false);
 		if(rmvTag) {
-			for(ArrayList<String> s : list) {
+			for(TeaType<String> s : list) {
 				s.remove(0);
 			}
 		}

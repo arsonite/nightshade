@@ -1,6 +1,6 @@
 package game.asset.core;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 
 import game.asset.util.Asset;
 
@@ -24,15 +24,15 @@ public class Character extends Asset {
 	protected double[] baseDmg, dmg;
 	protected boolean flag, gift;
 	protected Item fist;
-	protected ArrayList<Item> eq;
+	protected TeaType<Item> eq;
 	protected Appearance app;
 	protected Attributes att;
 	protected Blood bld;
-	protected ArrayList<Conjuration> con;
+	protected TeaType<Conjuration> con;
 	protected Inventory inv;
 	protected Mind mnd;
-	protected ArrayList<Status> sts;
-	protected ArrayList<Trait> trt;
+	protected TeaType<Status> sts;
+	protected TeaType<Trait> trt;
 	protected Match m;
 	
 	public void setName(String name) { this.name = name; }
@@ -71,16 +71,16 @@ public class Character extends Asset {
 			gift = false;
 		}
 		this.bld = new Blood(getSex(), app.getHeight(), app.getWeight());
-		sts = new ArrayList<Status>();
-		trt = new ArrayList<Trait>();
-		con = new ArrayList<Conjuration>();
+		sts = new TeaType<Status>();
+		trt = new TeaType<Trait>();
+		con = new TeaType<Conjuration>();
 		inv = new Inventory();
 		fist = new Item("Fist", "Your very own fist. Big deal.");
 		fist.setUsability(true, true, false, false, true, true, false, false, true, true);
 		fist.setValues(0, 0, 0, 0, 0);
 		fist.setDamageStats(0, 0, 0);
 		fist.setEquipCode(8);
-		eq = new ArrayList<Item>(21);
+		eq = new TeaType<Item>(21);
 		for(int i = 0; i < 21; i++) {
 			eq.add(i, null);
 		}
@@ -226,7 +226,7 @@ public class Character extends Asset {
 		return null;
 	}
 
-	public ArrayList<Status> getAllStatus() {
+	public TeaType<Status> getAllStatus() {
 		return sts;
 	}
 
@@ -257,7 +257,7 @@ public class Character extends Asset {
 		return null;
 	}
 
-	public ArrayList<Trait> getAllTraits() {
+	public TeaType<Trait> getAllTraits() {
 		return trt;
 	}
 

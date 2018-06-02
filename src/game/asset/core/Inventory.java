@@ -1,12 +1,12 @@
 package game.asset.core;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 
 public class Inventory {
-	public ArrayList<Item> inv;
+	public TeaType<Item> inv;
 	
 	public Inventory() {	
-		inv = new ArrayList<Item>();
+		inv = new TeaType<Item>();
 	}
 	
 	public void add(Item i) {
@@ -29,7 +29,7 @@ public class Inventory {
 		}
 	}
 	
-	public ArrayList<Item> getInventory() { return inv; }
+	public TeaType<Item> getInventory() { return inv; }
 	
 	public boolean containsWeapon() {
 		for(Item i : inv) {

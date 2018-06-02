@@ -1,6 +1,6 @@
 package game.asset.util;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 import java.util.Random;
 
 import util.SuperReader;
@@ -10,10 +10,10 @@ public class DialogueBits {
 	//Also, transfer entire class onto asset_init to read dialogue from txt file
 	
 	private static Random rnd = new Random();
-	private static ArrayList<String> buy = new ArrayList<String>();
-	private static ArrayList<String> sell;
-	private static ArrayList<String> tradeSuc;
-	private static ArrayList<String> tradeFail;
+	private static TeaType<String> buy = new TeaType<String>();
+	private static TeaType<String> sell;
+	private static TeaType<String> tradeSuc;
+	private static TeaType<String> tradeFail;
 	
 	// TODO: Inject conditions and length limiters
 	private final static void initiliaze() {

@@ -1,11 +1,10 @@
 package util;
 
-import java.util.ArrayList;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import teaType.data.BiPrimitive;
+import teaType.data.TeaType;
 
 import teaType.util.io.Reader;
 
@@ -31,9 +30,9 @@ public class SuperReader extends Reader {
 	private String[] arr;
 	private StringBuilder sb;
 	@SuppressWarnings("rawtypes")
-	private ArrayList l;
-	private ArrayList<ArrayList<?>> allList;
-	private ArrayList<ArrayList<String>> strList;
+	private TeaType l;
+	private TeaType<TeaType<?>> allList;
+	private TeaType<TeaType<String>> strList;
 
 	public SuperReader() {
 	}
@@ -65,21 +64,21 @@ public class SuperReader extends Reader {
 		
 	}
 
-	public ArrayList<ArrayList<?>> DEBUG_fileRegexToArrayList() {
+	public TeaType<TeaType<?>> DEBUG_fileRegexToTeaType() {
 		arr = stringArray("./res/raw/#!app.txt");
 
-		allList = new ArrayList<ArrayList<?>>();
+		allList = new TeaType<TeaType<?>>();
 
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
 			if(str.find()) {
 				s = str.group();
-				l = new ArrayList<String>();
+				l = new TeaType<String>();
 				continue;
 			} else if (appCol.find()) {
 				s = appCol.group();
-				l = new ArrayList<BiPrimitive>();
+				l = new TeaType<BiPrimitive>();
 				continue;
 			} else {
 				if(cat.find()) {
@@ -97,17 +96,17 @@ public class SuperReader extends Reader {
 		return allList;
 	}
 
-	public ArrayList<ArrayList<String>> DEBUG_fileRegexToStringArrayList(String path, boolean skipCat) {
+	public TeaType<TeaType<String>> DEBUG_fileRegexToStringTeaType(String path, boolean skipCat) {
 		arr = stringArray(path);
-		strList = new ArrayList<ArrayList<String>>();
-		l = new ArrayList<String>();
+		strList = new TeaType<TeaType<String>>();
+		l = new TeaType<String>();
 
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
 			if(str.find()) {
 				s = str.group();
-				l = new ArrayList<String>();
+				l = new TeaType<String>();
 				continue;
 			} else {
 				if(cat.find()) {
@@ -130,7 +129,7 @@ public class SuperReader extends Reader {
 
 	public int[] DEBUG_fileRegexToIntegerArray(String path) {
 		arr = stringArray(path);
-		ArrayList<String> list = new ArrayList<String>();
+		TeaType<String> list = new TeaType<String>();
 		for(String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);

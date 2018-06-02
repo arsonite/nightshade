@@ -1,6 +1,6 @@
 package game.engine;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 import java.util.HashMap;
 
 import game.asset.NPC;
@@ -13,14 +13,14 @@ public abstract class Adventure extends HashMap<Object, Object> implements Adven
 	
 	protected String title, desc, input, output;
 	protected int chrono;
-	protected ArrayList<NPC> npcList;
-	protected ArrayList<Item> itemList;
-	protected ArrayList<Location> locList;
+	protected TeaType<NPC> npcList;
+	protected TeaType<Item> itemList;
+	protected TeaType<Location> locList;
 
 	public Adventure() {
-		npcList = new ArrayList<NPC>();
-		itemList = new ArrayList<Item>();
-		locList = new ArrayList<Location>();
+		npcList = new TeaType<NPC>();
+		itemList = new TeaType<Item>();
+		locList = new TeaType<Location>();
 	}
 
 	public Adventure(String title, String description, int chronology) {
@@ -41,15 +41,15 @@ public abstract class Adventure extends HashMap<Object, Object> implements Adven
 		locList.add(loc);
 	}
 
-	public ArrayList<NPC> getNPCS() {
+	public TeaType<NPC> getNPCS() {
 		return npcList;
 	}
 
-	public ArrayList<Item> getItems() {
+	public TeaType<Item> getItems() {
 		return itemList;
 	}
 
-	public ArrayList<Location> getLocations() {
+	public TeaType<Location> getLocations() {
 		return locList;
 	}
 

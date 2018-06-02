@@ -6,7 +6,7 @@ Item-Rarities:
 
 Item-Usability:
 
-Item-ArrayList-Codes:
+Item-TeaType-Codes:
 	0 Type
 	1 Rarity
 	2 Usability

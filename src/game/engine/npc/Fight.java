@@ -1,6 +1,6 @@
 package game.engine.npc;
 
-import java.util.ArrayList;
+import java.util.TeaType;
 
 import game.asset.NPC;
 import game.asset.Player;
@@ -12,7 +12,7 @@ import teaType.util.StreamBuffer;
 class Fight {
 	private int count, round, elapse;
 	private BiPrimitive dmg;
-	private ArrayList<NPC> list;
+	private TeaType<NPC> list;
 
 	public Fight(Player p, NPC... nArr) throws Exception {
 		StreamBuffer.fixConsole();
@@ -26,7 +26,7 @@ class Fight {
 		}
 		*/
 		
-		list = new ArrayList<NPC>();
+		list = new TeaType<NPC>();
 		for(NPC n : nArr) {
 			list.add(n);
 		}
