@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="TeaType">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/teatype.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/teatype.jar!/" />
+    </SOURCES>
+  </library>
+</component>
