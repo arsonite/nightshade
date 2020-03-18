@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attributes>
+    <attribute>
+        <id>A#00</id>
+        <name>Lethargy</name>
+        <description>
+            Lethargy is the only attribute that can't be manually increased or decreased. It's an attribute that is dependent on other attributes.
+            Sometimes you reach your turn more often than the enemies, because the enemies have a higher lethargy than you. This opens up a lot of possibilities.
+            During fights, the lethargy counter goes up, and every time the counter reaches the manifold of your lethargy, its your turn again.
+            This makes it possible for you to have multiple consecutive actions during one fight turn.
+        </description>
+        <lethargyDescription></lethargyDescription>
+        <lethargyFactor>0</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#01</id>
+        <name>Alacrity</name>
+        <description>Describes your agility and how nimble you are.</description>
+        <lethargyDescription>Your agility directly influences your ability to act.</lethargyDescription>
+        <lethargyFactor>-3</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#02</id>
+        <name>Awareness</name>
+        <description>Placeholder</description>
+        <lethargyDescription>Being aware of your surroundings help you to make quick decisions.</lethargyDescription>
+        <lethargyFactor>-2</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#03</id>
+        <name>Brilliance</name>
+        <description>Placeholder</description>
+        <lethargyDescription>Your higher wit equals a higher risk assessment. This slows down your actions.</lethargyDescription>
+        <lethargyFactor>1</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#04</id>
+        <name>Empathy</name>
+        <description>Placeholder</description>
+        <lethargyDescription>Has no direct effect on your lethargy.</lethargyDescription>
+        <lethargyFactor>0</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#05</id>
+        <name>Fitness</name>
+        <description>Placeholder</description>
+        <lethargyDescription>Self-explanatory.</lethargyDescription>
+        <lethargyFactor>-2</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#06</id>
+        <name>Transcendence</name>
+        <description>Placeholder</description>
+        <lethargyDescription>Has no direct effect on your lethargy.</lethargyDescription>
+        <lethargyFactor>0</lethargyFactor>
+    </attribute>
+
+    <attribute>
+        <id>A#07</id>
+        <name>Vigor</name>
+        <description>Placeholder</description>
+        <lethargyDescription>The heavier and stronger you are, the more slowly you act and the more energy your body needs.</lethargyDescription>
+        <lethargyFactor>4</lethargyFactor>
+    </attribute>
+</attributes>
