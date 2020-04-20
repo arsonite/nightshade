@@ -32,16 +32,24 @@ public class Character extends Asset {
 	protected TeaType<Status> sts;
 	protected TeaType<Trait> trt;
 	protected Match m;
-	
-	public void setName(String name) { this.name = name; }
-	
-	public void setOrigin(String orig) { this.orig = orig; }
-	
-	public void setAge(int age) { this.age = age; }
-	
-	public void setAppearance() { }
 
-	public Character(String name, String orig, String sex, int age, Appearance app,  Attributes att, Mind mnd) throws Exception {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setOrigin(String orig) {
+		this.orig = orig;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setAppearance() {
+	}
+
+	public Character(String name, String orig, String sex, int age, Appearance app, Attributes att, Mind mnd)
+			throws Exception {
 		super(name, String.format("%s %s %s", name, orig, sex));
 		pn = PN = new String[3];
 		arm = 0.0;
@@ -49,20 +57,20 @@ public class Character extends Asset {
 		baseDmg = dmg = new double[3];
 		m = new Match();
 		gold = 0;
-				
+
 		// temporary //
-		
+
 		this.app = app;
 		this.att = att;
 		this.mnd = mnd;
-		
+
 		///////////////
 
 		this.name = name;
 		this.orig = orig;
 		setSex(sex);
 		this.age = age;
-		if(att.getTranscendence() >= 25) {
+		if (att.getTranscendence() >= 25) {
 			gift = true;
 			calculateGrant();
 		} else {
@@ -79,7 +87,7 @@ public class Character extends Asset {
 		fist.setDamageStats(0, 0, 0);
 		fist.setEquipCode(8);
 		eq = new TeaType<Item>(21);
-		for(int i = 0; i < 21; i++) {
+		for (int i = 0; i < 21; i++) {
 			eq.add(i, null);
 		}
 		equipFist(2, true);
@@ -88,29 +96,27 @@ public class Character extends Asset {
 		calculateStamina();
 		calculateDamage();
 	}
-	
-	
 
 	private final void equipFist(int side, boolean right) {
-		switch(side) {
-		case 0:
-			break;
-		case 1:
-			if(right) {
-				eq.set(11, fist);
-			} else {
+		switch (side) {
+			case 0:
+				break;
+			case 1:
+				if (right) {
+					eq.set(11, fist);
+				} else {
+					eq.set(8, fist);
+				}
+				break;
+			case 2:
 				eq.set(8, fist);
-			}
-			break;
-		case 2:
-			eq.set(8, fist);
-			eq.set(11, fist);
-			break;
+				eq.set(11, fist);
+				break;
 		}
 	}
 
 	protected final void calculateLevel() {
-		//Functions.calculateLevel(exp, EXP_MAX);
+		// Functions.calculateLevel(exp, EXP_MAX);
 	}
 
 	public void levelUp(int exp, int atr) {
@@ -128,14 +134,14 @@ public class Character extends Asset {
 	// TODO: StringReader for pronoun-set
 	public void setSex(String sex) throws InvalidSexException {
 		// Statement for preventing empty sex-strings
-		if(!m.male(sex) && !m.female(sex)) {
-			if(new Random().nextInt(2) == 0) {
+		if (!m.male(sex) && !m.female(sex)) {
+			if (new Random().nextInt(2) == 0) {
 				sex = "Male";
 			} else {
 				sex = "Female";
 			}
 		}
-		if(m.male(sex)) {
+		if (m.male(sex)) {
 			this.sex = "Male";
 			// TODO: Probably better solution possible/superReader read-in
 			pn[0] = "he";
@@ -144,7 +150,7 @@ public class Character extends Asset {
 			PN[0] = "He";
 			PN[1] = "Him";
 			PN[2] = "His";
-		} else if(m.female(sex)) {
+		} else if (m.female(sex)) {
 			this.sex = "Female";
 			pn[0] = "she";
 			pn[1] = "her";
@@ -153,71 +159,78 @@ public class Character extends Asset {
 			PN[1] = "Her";
 			PN[2] = "Hers";
 		}
-		/*} else {
-			throw new InvalidSexException(null);
-		}*/
+		/*
+		 * } else { throw new InvalidSexException(null); }
+		 */
 	}
 
-	protected final void calculateHealth() { maxHlt = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld); }
+	protected final void calculateHealth() {
+		maxHlt = hlt = Functions.calculateHealth(att.getFitness(), att.getVigor(), getAge(), bld);
+	}
 
-	protected final void calculateStamina() { maxStm = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld); }
+	protected final void calculateStamina() {
+		maxStm = stm = Functions.calculateStamina(att.getFitness(), att.getAlacrity(), getAge(), bld);
+	}
 
 	protected final void calculateDamage() {
 		double[] itemDmg = new double[3];
-		for(int i = 0; i < itemDmg.length; i++) {
+		for (int i = 0; i < itemDmg.length; i++) {
 			itemDmg[i] = eq.get(8).getDamageStats()[i] + eq.get(11).getDamageStats()[i];
 		}
 		baseDmg = Functions.calculateDamage(att.getVigor(), att.getAlacrity(), mnd, trt);
-		for(int i = 0; i < dmg.length; i++) {
+		for (int i = 0; i < dmg.length; i++) {
 			dmg[i] = baseDmg[i] + itemDmg[i];
 		}
 	}
 
-	protected final void calculateGrant() { maxGrn = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt); }
+	protected final void calculateGrant() {
+		maxGrn = grn = Functions.calculateGrant(att.getTranscendence(), mnd, trt);
+	}
 
 	public void useConjuration(int spl_ID) {
-		for(int i = 0; i < con.size(); i++) {
-			if(con.get(i).getID() == spl_ID) {
-				grn-= con.get(i).getCost();
+		for (int i = 0; i < con.size(); i++) {
+			if (con.get(i).getID() == spl_ID) {
+				grn -= con.get(i).getCost();
 			}
 		}
 		// TODO: Exception
 	}
 
-	// TODO: Convert to id confirmation not entire object comparison like above method
+	// TODO: Convert to id confirmation not entire object comparison like above
+	// method
 	public void addConjuration(Conjuration c) {
-		if(!(con.contains(c))) {
+		if (!(con.contains(c))) {
 			con.add(c);
 		}
 	}
 
 	public void removeConjuration(Conjuration c) {
-		if(!(con.contains(c))) {
+		if (!(con.contains(c))) {
 			con.remove(c);
 		}
 	}
 
 	public void addStatus(Status s) {
-		if(!sts.contains(s)) {
+		if (!sts.contains(s)) {
 			sts.add(s);
 		}
 	}
 
 	public void removeStatus(Status s) {
-		if(sts.contains(s)) {
+		if (sts.contains(s)) {
 			sts.remove(s);
 		}
 	}
 
 	public void removeAllStatus() {
-		if(!sts.isEmpty()) {
+		if (!sts.isEmpty()) {
 			sts.clear();
 		}
 	}
 
 	public Status getStatus(int id) {
-		for(Status s : sts) {
-			if(s.getID() == id) {
+		for (Status s : sts) {
+			if (s.getID() == id) {
 				return s;
 			}
 		}
@@ -229,26 +242,26 @@ public class Character extends Asset {
 	}
 
 	public void addTrait(Trait t) {
-		if(!trt.contains(t)) {
+		if (!trt.contains(t)) {
 			trt.add(t);
 		}
 	}
 
 	public void removeTrait(Trait t) {
-		if(trt.contains(t)) {
+		if (trt.contains(t)) {
 			trt.remove(t);
 		}
 	}
 
 	public void removeAllTraits() {
-		if(!trt.isEmpty()) {
+		if (!trt.isEmpty()) {
 			trt.clear();
 		}
 	}
 
 	public Trait getTrait(int id) {
-		for(Trait t : trt) {
-			if(t.getID() == id) {
+		for (Trait t : trt) {
+			if (t.getID() == id) {
 				return t;
 			}
 		}
@@ -264,10 +277,10 @@ public class Character extends Asset {
 	}
 
 	public void addArmor(int arm) throws ArmorLimitException {
-		if((this.arm + (double) arm/ARM_MAX) <= 1.0) {
-			this.arm+= (double) arm/ARM_MAX;
+		if ((this.arm + (double) arm / ARM_MAX) <= 1.0) {
+			this.arm += (double) arm / ARM_MAX;
 		} else {
-			//Finish ArmorLimitException and its dependencies
+			// Finish ArmorLimitException and its dependencies
 			throw new ArmorLimitException(Double.toString(arm));
 		}
 	}
@@ -277,24 +290,24 @@ public class Character extends Asset {
 	}
 
 	public void randomArmorWithMax(int max) throws ArmorLimitException {
-		if((double) max/ARM_MAX <= 1.0) {
+		if ((double) max / ARM_MAX <= 1.0) {
 			// TODO: Write more efficient algorithm
 			do {
-				arm = Math.random();	
-			} while(arm > (double) max/ARM_MAX);
+				arm = Math.random();
+			} while (arm > (double) max / ARM_MAX);
 		} else {
 			throw new ArmorLimitException(Double.toString(arm));
 		}
 	}
 
 	public void addItem(Item i) {
-		if(!(inv.containsItem(i))) {
+		if (!(inv.containsItem(i))) {
 			inv.add(i);
 		}
 	}
 
 	public void removeItem(Item i) {
-		if(inv.containsItem(i)) {
+		if (inv.containsItem(i)) {
 			inv.remove(i);
 		}
 	}
@@ -302,7 +315,7 @@ public class Character extends Asset {
 	public void equipItem(Item i) {
 		// TODO: Condition to check for already full slot
 		int code = i.getEquipCode();
-		if(inv.containsItem(i)) {
+		if (inv.containsItem(i)) {
 			eq.set(code, i);
 			inv.remove(i);
 			calculateDamage();
@@ -310,12 +323,13 @@ public class Character extends Asset {
 	}
 
 	public void unequipItem(int code) {
-		if(eq.get(code) != fist) {
-			inv.add(eq.get(code));;
-			eq.remove(code);	
-			if(code == 8) {
+		if (eq.get(code) != fist) {
+			inv.add(eq.get(code));
+			;
+			eq.remove(code);
+			if (code == 8) {
 				equipFist(1, false);
-			} else if(code == 11) {
+			} else if (code == 11) {
 				equipFist(1, true);
 			}
 		}
@@ -323,33 +337,34 @@ public class Character extends Asset {
 	}
 
 	public void takeDamage(double dmgIn) {
-		dmgIn-= (dmgIn * arm);
+		dmgIn -= (dmgIn * arm);
 		this.dmgIn = dmgIn;
-		hlt-= dmgIn;
-		if(hlt <= 0) {
+		hlt -= dmgIn;
+		if (hlt <= 0) {
 			hlt = 0;
 		}
 	}
 
 	public void gainGrant(int itrs) {
-		if(gift) {
+		if (gift) {
 			int sacr = Functions.sacrificeHealth(hlt, att.getTranscendence());
-			int gain = (int) (Functions.calculateGrant(att.getTranscendence(), mnd, trt) * Math.sin(Math.toRadians((att.getTranscendence() / 10.0) + 20)));
+			int gain = (int) (Functions.calculateGrant(att.getTranscendence(), mnd, trt)
+					* Math.sin(Math.toRadians((att.getTranscendence() / 10.0) + 20)));
 			int temp = gain;
 			boolean grnCon = (grn + gain) <= maxGrn;
 			boolean hltCon = (hlt - sacr) >= 0;
 			boolean tempCon = (grn + temp) <= maxGrn;
-			if(grnCon && hltCon) {
-				for(int i = 0; i < itrs; i++) {
-					if(hltCon && tempCon) {
-						hlt-= sacr;
-						grn+= gain;
+			if (grnCon && hltCon) {
+				for (int i = 0; i < itrs; i++) {
+					if (hltCon && tempCon) {
+						hlt -= sacr;
+						grn += gain;
 						temp = gain;
-						tempCon = (grn + (temp*= (i + 1))) <= maxGrn;
+						tempCon = (grn + (temp *= (i + 1))) <= maxGrn;
 					} else {
-						if(hltCon) {
-							hlt-= sacr;
-							grn+= temp - ((temp + grn) - maxGrn);
+						if (hltCon) {
+							hlt -= sacr;
+							grn += temp - ((temp + grn) - maxGrn);
 						}
 						break;
 					}
@@ -359,11 +374,11 @@ public class Character extends Asset {
 	}
 
 	public void calculateAge() {
-		age*= 256;
+		age *= 256;
 	}
 
 	public void age(int days) {
-		age+= days;
+		age += days;
 		bld.regain(days);
 	}
 
@@ -402,7 +417,7 @@ public class Character extends Asset {
 	}
 
 	public boolean isDead() {
-		if(hlt <= 0 || bld.isBledOut()) {
+		if (hlt <= 0 || bld.isBledOut()) {
 			return true;
 		} else {
 			return false;
@@ -410,7 +425,7 @@ public class Character extends Asset {
 	}
 
 	public boolean isExhausted() {
-		if(stm == 0) {
+		if (stm == 0) {
 			return true;
 		} else {
 			return false;
@@ -502,11 +517,11 @@ public class Character extends Asset {
 	}
 
 	public String getSmallPronoun(int i) {
-		return new String(pn[i-1]);
+		return new String(pn[i - 1]);
 	}
 
 	public String getCapitalPronoun(int i) {
-		return new String(PN[i-1]);
+		return new String(PN[i - 1]);
 	}
 
 	public BiPrimitive[] getAllAttributes(boolean let) {
@@ -528,73 +543,79 @@ public class Character extends Asset {
 	public Mind getMindObject() {
 		return mnd;
 	}
-	
+
 	public String retrieveStats() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Status profile (");
-		if(flag) {
-			sb.append("Player");	
+		if (flag) {
+			sb.append("Player");
 		} else {
-			sb.append("NPC");	
+			sb.append("NPC");
 		}
 		sb.append("):\n------------------------\n");
-		sb.append(String.format("Name: %s %nOrigin: %s %nSex: %s %nAge: %d %nLevel: %d %nArmor: %d %nHealth: %d %nStamina: %d %nGrant: %d%n",
-				getName(), getOrigin(), getSex(), getAge(), getLevel(), getArmor(), getHealth(), getStamina(), getGrant()));
+		sb.append(String.format(
+				"Name: %s %nOrigin: %s %nSex: %s %nAge: %d %nLevel: %d %nArmor: %d %nHealth: %d %nStamina: %d %nGrant: %d%n",
+				getName(), getOrigin(), getSex(), getAge(), getLevel(), getArmor(), getHealth(), getStamina(),
+				getGrant()));
 
 		sb.append("\n▪ Appearance:\n");
-		sb.append(String.format("   » %.2fm %n   » %.1fkg%n   » BMI-Score: %.1f %n", app.getHeight(), app.getWeight(), app.getBMI()));
-		for(int i = 0; i < app.getAppearance().size(); i++) {
-			if(getSex().equals("Female") && (i == 8 || i == 9)) {
+		sb.append(String.format("   » %.2fm %n   » %.1fkg%n   » BMI-Score: %.1f %n", app.getHeight(), app.getWeight(),
+				app.getBMI()));
+		for (int i = 0; i < app.getAppearance().size(); i++) {
+			if (getSex().equals("Female") && (i == 8 || i == 9)) {
 				continue;
 			}
 			sb.append(String.format("   » %s: %s %n", app.getList().get(i).get(0), app.getAppearance().get(i)));
 		}
 
 		sb.append("\n▪ Attributes:");
-		for(BiPrimitive a : att.getAttributes(true)) {
+		for (BiPrimitive a : att.getAttributes(true)) {
 			sb.append("\n   » " + a.getFirst() + " - " + a.getSecond());
 		}
 		sb.append("\n");
 
 		sb.append("\n▪ Bloodtype:\n");
-		sb.append(String.format("   » Blood-Status: %s%n   » Blood-State: %d%n   » Bloodfactor: %.2f %n   » Blood-Amount: %.1f%n",
+		sb.append(String.format(
+				"   » Blood-Status: %s%n   » Blood-State: %d%n   » Bloodfactor: %.2f %n   » Blood-Amount: %.1f%n",
 				getBloodtype(), getBloodState(), getBloodfactor(), getBloodAmount()));
 
-		if(!(con.isEmpty())) {
+		if (!(con.isEmpty())) {
 			sb.append("\n");
 			sb.append("\n▪ Conjurations:\n");
-			for(int i = 0; i < con.size(); i++) {
-				sb.append(String.format("      → %s - \"%s\" (Spell-ID: %s)%n", con.get(i).getName(), con.get(i).getDescription(), con.get(i).getID()));
+			for (int i = 0; i < con.size(); i++) {
+				sb.append(String.format("      → %s - \"%s\" (Spell-ID: %s)%n", con.get(i).getName(),
+						con.get(i).getDescription(), con.get(i).getID()));
 			}
 			sb.append("\n");
 		}
 
-		if(flag) {
+		if (flag) {
 			sb.append("\n▪ Focus:");
 			sb.append("\n");
 		}
 
 		sb.append("\n▪ Inventory:\n");
 		sb.append(String.format("   » Currently equipped: %s%n   » Item-Stache: %n", eq.get(11).getName()));
-		for(Item i : eq) {
-			if(i != null) {
-				//sb.append(String.format("On ", ));
+		for (Item i : eq) {
+			if (i != null) {
+				// sb.append(String.format("On ", ));
 			}
 		}
-		for(Item i : inv.getInventory()) {
+		for (Item i : inv.getInventory()) {
 			sb.append(String.format("      → %s - \"%s\" (Item-ID: %s)%n", i.getName(), i.getDescription(), i.getID()));
 		}
 
 		sb.append("\n▪ Mind:\n");
-		String.format("   » Mind-State: %s, %d%n   » Mind-Progression: %s, %d%n",
-				mnd.getMentalStateToString(), mnd.getMentalState(), mnd.getProgressToString(), mnd.getProgress());
+		String.format("   » Mind-State: %s, %d%n   » Mind-Progression: %s, %d%n", mnd.getMentalStateToString(),
+				mnd.getMentalState(), mnd.getProgressToString(), mnd.getProgress());
 
 		sb.append("   » Civic beliefs:\n");
-		for(int i = 0; i < mnd.getCivicBeliefs().length; i++) {
-			sb.append(String.format("      → %s: %s%n", mnd.DEBUG_displayAllCivicOptions().get(i).get(0), mnd.getCivicBeliefs()[i]));
+		for (int i = 0; i < mnd.getCivicBeliefs().length; i++) {
+			sb.append(String.format("      → %s: %s%n", mnd.DEBUG_displayAllCivicOptions().get(i).get(0),
+					mnd.getCivicBeliefs()[i]));
 		}
 
-		if(flag) {
+		if (flag) {
 			sb.append("\n▪ Reputation:\n");
 			sb.append("\n");
 			sb.append("\n▪ Skills:\n");
@@ -607,12 +628,15 @@ public class Character extends Asset {
 		sb.append("\n▪ Traits:\n");
 		sb.append("\n");
 
-		sb.append(String.format("%n▪ Damage-Stats: %n   » Base Damage:     %.0f = %.0f + %.0f Item-Damage %n   "
-				+ "» Critical Damage: %.0f = Base + %.2f%% + %.2f%% Item-Critical-Damage %n"
-				+ "   » Critical Chance: %.2f%% = %.2f%% + %.2f%% Item-Critical-Chance %n",
-				getDamage(), getBaseDamage(), (eq.get(8).getDamage() + eq.get(11).getDamage()), (getBaseDamage() * getCriticalDamage()),
-				(100 * getBaseCriticalDamage() - 100), (100 * (eq.get(8).getCriticalDamage() + eq.get(11).getCriticalDamage())), (getCriticalChance() * 100),
-				(getBaseCriticalChance() * 80), ((eq.get(8).getCriticalChance() + eq.get(11).getCriticalChance()) * 100)));
+		sb.append(String.format(
+				"%n▪ Damage-Stats: %n   » Base Damage:     %.0f = %.0f + %.0f Item-Damage %n   "
+						+ "» Critical Damage: %.0f = Base + %.2f%% + %.2f%% Item-Critical-Damage %n"
+						+ "   » Critical Chance: %.2f%% = %.2f%% + %.2f%% Item-Critical-Chance %n",
+				getDamage(), getBaseDamage(), (eq.get(8).getDamage() + eq.get(11).getDamage()),
+				(getBaseDamage() * getCriticalDamage()), (100 * getBaseCriticalDamage() - 100),
+				(100 * (eq.get(8).getCriticalDamage() + eq.get(11).getCriticalDamage())), (getCriticalChance() * 100),
+				(getBaseCriticalChance() * 80),
+				((eq.get(8).getCriticalChance() + eq.get(11).getCriticalChance()) * 100)));
 		return sb.toString();
 	}
 }

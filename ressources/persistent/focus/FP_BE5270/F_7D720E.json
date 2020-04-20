@@ -1,0 +1,19 @@
+{
+	"id": "F_7D720E",
+	"name": "Attack Rush",
+	"requirements": [
+		{
+			"id": "F_11F04B",
+			"ascension": 0
+		}
+	],
+	"cost": "",
+	"functions": [],
+
+	"ascension": [3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
+	"ascension_cost": 3,
+
+	"activation_threshold": ,
+
+	"description": "Placeholder"
+}

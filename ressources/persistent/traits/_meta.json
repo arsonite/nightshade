@@ -1,0 +1,12 @@
+{
+	"id": "T_000000",
+	"name": "Traits",
+	"description": "${path}:ressources/wiki/Traits.md",
+
+	"survivalTrait": "T_2DB74B",
+	"hardcoreTrait": "T_B09647",
+
+	"ascensionDescriptors": ["Higher", "Greater", "Grand", "Prime"],
+	"survivalDescriptor": "Inhuman",
+	"hardcoreDescriptor": "Godlike"
+}

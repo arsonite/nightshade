@@ -1,12 +1,8 @@
 package game.asset.core;
 
-import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Random;
 
-import game.asset.core.Attribute;
-import game.asset.factories.AttributeFactory;
+import game.asset.util.Attribute;
 
 /**
  * The class {@code Attributes} contains the methods necessary to determine

@@ -1,6 +1,6 @@
 package game.asset;
 
-import game.asset.core.Asset;
+import game.asset.util.Asset;
 
 public class Buff extends Asset {
     private String keyword;

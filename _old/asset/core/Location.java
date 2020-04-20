@@ -28,7 +28,7 @@ public class Location extends Asset {
 		this.size = size;
 		arr = new Asset[size][size];
 		d = (int) (Math.log10(size) + 1);
-		if(d < 0) {
+		if (d < 0) {
 			d = 0;
 		}
 	}
@@ -62,17 +62,17 @@ public class Location extends Asset {
 	}
 
 	public final void print() {
-		String s = String.format("%s-Name: %s | Description: %s | Slot-Size: %d",
-				this.getClass().getSimpleName(), name, desc, size);
+		String s = String.format("%s-Name: %s | Description: %s | Slot-Size: %d", this.getClass().getSimpleName(), name,
+				desc, size);
 		System.out.println(s);
-		for(int i = 0; i < s.length(); i++) {
+		for (int i = 0; i < s.length(); i++) {
 			System.out.print("-");
 		}
 		System.out.println();
 		arr[0][0] = null;
-		for(int x = 0; x < arr.length; x++) {
+		for (int x = 0; x < arr.length; x++) {
 			System.out.print("[" + x + "]");
-			for(int y = 1; y < arr.length; y++) {
+			for (int y = 1; y < arr.length; y++) {
 				System.out.print("[" + y + "]");
 			}
 			System.out.println();

@@ -45,23 +45,23 @@ public class SuperReader extends Reader {
 		str = STR.matcher(s);
 		appCol = APPCOL.matcher(s);
 	}
-	
+
 	private final void searchPattern(String s) {
 	}
-	
+
 	private final void cutListEnd(boolean type) {
-		if(type) {
-			if(end.find()) {
-				l.remove(l.size()-1);
+		if (type) {
+			if (end.find()) {
+				l.remove(l.size() - 1);
 				allList.add(l);
-			}	
+			}
 		} else {
-			if(end.find()) {
-				l.remove(l.size()-1);
+			if (end.find()) {
+				l.remove(l.size() - 1);
 				strList.add(l);
-			}	
+			}
 		}
-		
+
 	}
 
 	public TeaType<TeaType<?>> DEBUG_fileRegexToTeaType() {
@@ -69,10 +69,10 @@ public class SuperReader extends Reader {
 
 		allList = new TeaType<TeaType<?>>();
 
-		for(String s : arr) {
+		for (String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(str.find()) {
+			if (str.find()) {
 				s = str.group();
 				l = new TeaType<String>();
 				continue;
@@ -81,14 +81,14 @@ public class SuperReader extends Reader {
 				l = new TeaType<BiPrimitive>();
 				continue;
 			} else {
-				if(cat.find()) {
+				if (cat.find()) {
 					s = cat.group();
 				} else if (type.find()) {
 					s = type.group();
-				} else if(con.find()) {
+				} else if (con.find()) {
 					s = con.group();
 				}
-				s = sb.substring(1, s.length()-1);
+				s = sb.substring(1, s.length() - 1);
 				l.add(s);
 			}
 			cutListEnd(true);
@@ -101,25 +101,25 @@ public class SuperReader extends Reader {
 		strList = new TeaType<TeaType<String>>();
 		l = new TeaType<String>();
 
-		for(String s : arr) {
+		for (String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(str.find()) {
+			if (str.find()) {
 				s = str.group();
 				l = new TeaType<String>();
 				continue;
 			} else {
-				if(cat.find()) {
+				if (cat.find()) {
 					s = cat.group();
-					if(skipCat) {
+					if (skipCat) {
 						continue;
 					}
 				} else if (type.find()) {
 					s = type.group();
-				} else if(con.find()) {
+				} else if (con.find()) {
 					s = con.group();
 				}
-				s = sb.substring(1, s.length()-1);
+				s = sb.substring(1, s.length() - 1);
 				l.add(s);
 			}
 			cutListEnd(false);
@@ -130,28 +130,28 @@ public class SuperReader extends Reader {
 	public int[] DEBUG_fileRegexToIntegerArray(String path) {
 		arr = stringArray(path);
 		TeaType<String> list = new TeaType<String>();
-		for(String s : arr) {
+		for (String s : arr) {
 			compile(s);
 			sb = new StringBuilder(s);
-			if(cat.find()) {
+			if (cat.find()) {
 				s = cat.group();
 			} else if (type.find()) {
 				s = type.group();
-			} else if(con.find()) {
+			} else if (con.find()) {
 				s = con.group();
 			}
-			s = sb.substring(1, s.length()-1);
+			s = sb.substring(1, s.length() - 1);
 			list.add(s);
 		}
-		if(end.find()) {
-			list.remove(list.size()-1);
+		if (end.find()) {
+			list.remove(list.size() - 1);
 			list.remove(0);
 			list.remove(0);
 		}
-		
+
 		arr = new String[list.size()];
 		int[] intArr = new int[arr.length];
-		for(int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++) {
 			arr[i] = list.get(i);
 			intArr[i] = Integer.parseInt(arr[i]);
 		}

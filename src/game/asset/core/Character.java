@@ -1,10 +1,14 @@
 package game.asset.core;
 
-import game.asset.Damage;
-
+import game.asset.util.Asset;
+import game.asset.util.Damage;
 import math.Functions;
 
-public class Character extends Asset {
+public abstract class Character extends Asset {
+    private boolean survivalMode = true;
+    private int thirst = 0;
+    private int calories = 2000;
+
     private Attributes attributes;
     private Damage damage;
 

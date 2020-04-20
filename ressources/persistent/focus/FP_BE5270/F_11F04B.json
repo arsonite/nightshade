@@ -1,0 +1,16 @@
+{
+	"id": "F_11F04B",
+	"name": "Battle Cry",
+	"requirements": null,
+	"cost": 7,
+	"functions": null,
+
+	"ascension": null,
+	"ascensionCost": null,
+
+	"defaultValue": "Ora",
+	"person": "Old Hermit",
+	"location": "Watercrest Barrow",
+	"minimumPercentage": 25,
+	"description": "${name} is a focus buff.\nAquiring the first level of ${name} prompts the user to enter a custom ${name} of his choice.\nIf none is given, the standard ${name} is ${defaultValue}.\n\nTo change your ${name}, you have to visit the ${person} in the ${location} with less than ${minimumPercentage}% of your health"
+}

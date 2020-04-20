@@ -1,6 +1,6 @@
 package game.asset.factories;
 
-import game.asset.core.Attribute;
+import game.asset.util.Attribute;
 
 public class AttributeFactory {
     private String name;
