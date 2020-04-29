@@ -3,8 +3,8 @@
 	"name": "Traits",
 	"description": "${path}:ressources/wiki/Traits.md",
 
-	"survivalTrait": "T_2DB74B",
-	"hardcoreTrait": "T_B09647",
+	"survival": "T_2DB74B",
+	"hardcore": "T_B09647",
 
 	"ascensionDescriptors": ["Higher", "Greater", "Grand", "Prime"],
 	"survivalDescriptor": "Inhuman",

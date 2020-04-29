@@ -22,10 +22,7 @@ _Traits_ can be upgraded through the following path:
     5. Inhuman (only in survival mode)
     6. Godlike (only in hardcore mode)
 
-Traits
-Revitalization (Higher/Greater/Grand)
-
-    Sinister Heart (Higher/Greater/Grand/Prime/Inhuman)
+Sinister Heart (Higher/Greater/Grand/Prime/Inhuman)
 
     Sharpshooter (Higher/Greater/Grand/Prime/Inhuman)
 
@@ -63,7 +60,7 @@ Revitalization (Higher/Greater/Grand)
     Higher: You can understand animals.
     Greater: You can talk to animals.
     Grand: You can order animals to do something.
-    Grand: You can turn into the animal of your focus path.
+    Prime: You can turn into the animal of your focus path. Requires you to learn the conjuration ${id}
     - "The Augur is in a symbiotic relationship with nature and its offspring."
 
 Passively aquirable traits:

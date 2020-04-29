@@ -18,32 +18,36 @@ There are four _Focus_ paths your character can take:
 
 ## Armored Armadillo
 
-The _Focus_ path of defense.
+    The Focus path of defense.
 
 ## Galvanizing Gorilla
 
-The _Focus_ path of unarmed combat.
+    The Focus path of unarmed combat.
 
 ## Seething Snake
 
-The _Focus_ path of armed combat.
+    The Focus path of armed combat.
 
 ## Harrowing Hawk
 
-The _Focus_ path of ranged combat.
+    The Focus path of ranged combat.
 
-Inner Strength (Unarmed)
+Inner Strength
+
 Armored Shell
 
+Impact Force (+1/+2/+3/+4/+5/+6/+7/+8/+9/+10)
+
 High Impact Force (+1/+2/+3/+4/+5/+6/+7/+8/+9/+10)
+Requires: Impact Force +10
 Your punches (and if unlocked kicks) bear such a force behind them, that there is a 5/10/15/20/25/30/35/40/45/50% chance that the knockback is so strong, it sends the enemy flying. When an object is in the trajectory of the flight and the object is not destroyed in the process, it inflicts additional damage on the target. When it breaks it still inflicts damage, just not as great.
 
-Cleaving Greater Impact Force (+1/+2/+3/+4/+5)
+Cleaving Greater Impact Force (+1/+2/+3/+4/+5/+6/+7/+8/+9/+10)
 Requires: High Impact Force +10
 _Focus_ activation treshold: 10%
-The chance of your punches (and if unlocked kicks) triggering a blowback that damages nearby enemies is increased to 55/60/65/70/75%
+The chance of your unarmed melee attacks triggering a blowback that damages and knocksback nearby enemies is increased to 55/60/65/70/75%.
 
-Strong Kick (+1/+2/+3/+4/+5)
+Strong Fist (+1/+2/+3/+4/+5)
 
 Heavy Fist (+1/+2/+3/+4/+5)
 

@@ -3,6 +3,7 @@
 	"name": "Galvanizing Gorilla",
 	"description": "The _Focus_ path of unarmed combat.",
 	"type": "Unarmed",
-	"survivalist": "",
-	"godhood": ""
+
+	"survival": "",
+	"hardcore": ""
 }
