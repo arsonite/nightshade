@@ -2,7 +2,62 @@ package game.asset.core;
 
 import java.util.HashMap;
 
-import game.asset.util.Attribute;
+import org.apache.commons.codec.binary.Hex;
+
+import game.asset.Buff;
+import game.asset.base.Asset;
+
+/**
+ * The class {@code Attribute}
+ *
+ * @author Burak Günaydin
+ */
+class Attribute extends Asset {
+    public final static int MAX_VALUE = 994;
+    public final static int MIN_VALUE = 1;
+
+    private String lethargyDescription;
+    private int lethargyFactor;
+    private int value;
+
+    public Attribute(final Hex id, String name, String description) {
+        super(id, name, description);
+    }
+
+    public Attribute(final Hex id, String name, String description, int value) {
+        super(id, name, description);
+        setValue(value);
+    }
+
+    public Attribute(final Hex id, String name, String description, String lethargyDescription, int lethargyFactor) {
+        this(id, name, description);
+        setLethargyDescription(lethargyDescription);
+        setLethargyFactor(lethargyFactor);
+    }
+
+    public Attribute(final Hex id, String name, String description, String lethargyDescription, int lethargyFactor, int value) {
+        this(id, name, description, lethargyDescription, lethargyFactor);
+        setValue(value);
+    }
+
+    public final void increase(int points) {
+        this.value += points;
+    }
+
+    public final void decrease(int points) {
+        this.value -= points;
+    }
+
+    /* GETTER */
+    public String lethargyDescription() { return lethargyDescription; }
+    public int lethargyFactor() { return lethargyFactor; }
+    public int value() { return value; }
+
+    /* SETTER */
+    public void setLethargyDescription(String lethargyDescription) { this.lethargyDescription = lethargyDescription; }
+    public void setLethargyFactor(int lethargyFactor) { this.lethargyFactor = lethargyFactor; }
+    public void setValue(int value) { this.value = value; }
+}
 
 /**
  * The class {@code Attributes} contains the methods necessary to determine

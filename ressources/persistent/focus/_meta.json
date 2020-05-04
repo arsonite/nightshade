@@ -1,5 +1,5 @@
 {
 	"id": "F_000000",
 	"name": "Focus",
-	"markdownPath": "$path:ressources/wiki/Focus.md"
+	"description": "$path:ressources/persistent/${name}.md"
 }

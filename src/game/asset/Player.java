@@ -1,13 +1,11 @@
 package game.asset;
 
+import org.apache.commons.codec.binary.Hex;
+
 import game.asset.core.Character;
 
 public class Player extends Character {
-    public Player() {
-        super("", "");
-    }
-
-    public Player(String name, String description) {
-        super(name, description);
+    public Player(final Hex id, String name, String description) {
+        super(id, name, description);
     }
 }

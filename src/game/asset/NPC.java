@@ -1,12 +1,14 @@
 package game.asset;
 
+import org.apache.commons.codec.binary.Hex;
+
 import game.asset.core.Character;
 
 public class NPC extends Character {
     private boolean essential;
 
-    public NPC(String name, String description) {
-        super(name, description);
+    public NPC(final Hex id, String name, String description) {
+        super(id, name, description);
     }
 
     /* GETTER */

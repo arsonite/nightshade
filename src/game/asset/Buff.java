@@ -1,29 +1,31 @@
 package game.asset;
 
-import game.asset.util.Asset;
+import org.apache.commons.codec.binary.Hex;
+
+import game.asset.base.Asset;
 
 public class Buff extends Asset {
     private String keyword;
     private int value;
     private boolean isDebuff;
 
-    public Buff(String name, String description, String keyword) {
-        super(name, description);
+    public Buff(final Hex id, String name, String description, String keyword) {
+        super(id, name, description);
         setKeyword(keyword);
     }
 
-    public Buff(String name, String description, String keyword, boolean isDebuff) {
-        this(name, description, keyword);
+    public Buff(final Hex id, String name, String description, String keyword, boolean isDebuff) {
+        this(id, name, description, keyword);
         setDebuff(isDebuff);
     }
 
-    public Buff(String name, String description, int value) {
-        super(name, description);
+    public Buff(final Hex id, String name, String description, int value) {
+        super(id, name, description);
         setValue(value);
     }
 
-    public Buff(String name, String description, int value, boolean isDebuff) {
-        this(name, description, value);
+    public Buff(final Hex id, String name, String description, int value, boolean isDebuff) {
+        this(id, name, description, value);
         setDebuff(isDebuff);
     }
 

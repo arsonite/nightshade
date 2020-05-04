@@ -1,1 +1,16 @@
-{}
+{
+	"id": String,
+	"name": String,
+	"requirements": ArrayOfObjects,
+	"cost": Integer,
+
+	"ascension": ArrayOrMatrix,
+	"ascensionCost": Integer,
+
+	"staminaCost": ArrayOrMatrix,
+	"focusCost": Integer,
+
+	"args": ArrayOfValues,
+	"description": StringOrPath,
+	"quote": String
+}

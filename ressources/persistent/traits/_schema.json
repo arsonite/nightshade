@@ -1,19 +1,16 @@
 {
 	"id": String,
-	"acquirable": bool,
-	"effect": String,
-
 	"name": String,
 	"requirements": ArrayOfObjects,
 	"cost": Integer,
 
-	"functions": String,
+	"acquirable": bool,
+	"effect": String,
 
 	"ascension": ArrayOrMatrix,
 	"ascensionCost": Integer,
 
-	"bonus": String,
+	"args": ArrayOfValues,
 	"description": StringOrPath,
-	"additionalModifiers": ArrayOfObjects,
 	"quote": String
 }

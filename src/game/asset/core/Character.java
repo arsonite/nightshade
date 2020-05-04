@@ -1,7 +1,9 @@
 package game.asset.core;
 
-import game.asset.util.Asset;
-import game.asset.util.Damage;
+import org.apache.commons.codec.binary.Hex;
+
+import game.asset.base.Asset;
+import game.asset.Damage;
 import math.Functions;
 
 public abstract class Character extends Asset {
@@ -12,8 +14,8 @@ public abstract class Character extends Asset {
     private Attributes attributes;
     private Damage damage;
 
-    public Character(String name, String description) {
-        super(name, description);
+    public Character(final Hex id, String name, String description) {
+        super(id, name, description);
     }
 
     // TODO: Revamp for internal double system and external int system
