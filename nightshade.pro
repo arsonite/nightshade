@@ -1,4 +1,4 @@
-QT       += quick core gui multimedia opengl
+QT += quick core gui multimedia opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,7 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     src/main.cpp \
-    mainwindow.cpp
+    src/ui/mainwindow.cpp
 
 HEADERS += \
     mainwindow.h
@@ -21,17 +21,17 @@ FORMS += \
 TRANSLATIONS += \
     nightshade_en_US.ts
 
-# INCLUDEPATH += src/
+#INCLUDEPATH += src/
 
-# RESOURCES += qml.qrc
+#RESOURCES += qml.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
-# QML_IMPORT_PATH =
+#QML_IMPORT_PATH =
 
 # Additional import path used to resolve QML modules just for Qt Quick Designer
-# QML_DESIGNER_IMPORT_PATH =
+#QML_DESIGNER_IMPORT_PATH =
 
-# DISTFILES +=
+#DISTFILES +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
