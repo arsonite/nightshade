@@ -13,15 +13,15 @@ SOURCES += \
     src/ui/mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    src/ui/mainwindow.h
 
 FORMS += \
-    mainwindow.ui
+    src/ui/mainwindow.ui
 
 TRANSLATIONS += \
     nightshade_en_US.ts
 
-#INCLUDEPATH += src/
+INCLUDEPATH += src/
 
 #RESOURCES += qml.qrc
 
