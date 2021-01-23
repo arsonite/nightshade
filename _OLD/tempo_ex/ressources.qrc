@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>res/music/music_intro.mp3</file>
+        <file>res/8-Bit Wonder.TTF</file>
+        <file>res/bg.gif</file>
+        <file>res/music/music_game.mp3</file>
+        <file>res/sfx/cannon.wav</file>
+        <file>res/sfx/shotgun.wav</file>
+        <file>res/sfx/machine_gun.wav</file>
+        <file>res/savedata.ini</file>
+        <file>res/sfx/jingle_lost.wav</file>
+        <file>res/music/music_lost.mp3</file>
+        <file>res/sfx/collect.wav</file>
+        <file>res/sfx/damaged.wav</file>
+    </qresource>
+</RCC>
