@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="main_menu">resources/audio/music/menu/main_menu.mp3</file>
+</qresource>
+</RCC>

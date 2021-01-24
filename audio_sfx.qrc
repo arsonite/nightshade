@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file alias="soft_click">resources/audio/sfx/soft_click.wav</file>
+    <file alias="small_click">resources/audio/sfx/small_click.wav</file>
+    <file alias="soft_flick">resources/audio/sfx/soft_flick.mp3</file>
+</qresource>
+</RCC>

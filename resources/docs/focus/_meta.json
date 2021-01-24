@@ -1,0 +1,5 @@
+{
+	"id": "F_000000",
+	"name": "Focus",
+	"description": "$path:ressources/persistent/${name}.md"
+}
