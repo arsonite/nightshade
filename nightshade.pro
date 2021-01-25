@@ -8,13 +8,17 @@ CONFIG += c++20
 # In order to do so, uncomment the following line.
 
 SOURCES = $$files(src/*.cpp, true) \
-    main.cpp
+    main.cpp \
+    src/util/Logger.cpp
 
 HEADERS = $$files(src/*.h, true) \
     src/engine/util/ID.h \
     src/engine/util/ID.h \
+    src/engine/util/ID.h \
     src/graphics/gui/mainwindow.h \
-    src/graphics/gui/mainwindow.h
+    src/graphics/gui/mainwindow.h \
+    src/graphics/gui/mainwindow.h \
+    src/util/Logger.h
 
 HEADERS = $$files(src/*.ui, true)
 
