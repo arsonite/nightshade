@@ -15,22 +15,35 @@
 
 using namespace std;
 
-class OS
-{
-public:
-    static void init();
+struct Path {
+    public:
+        explicit Path(unsigned int statusCode, string url);
 
-    /* Getter */
-    static const tuple<const unsigned int, const string> *homePath();
-    static const tuple<const unsigned int, const string> *applicationPath();
+        virtual ~Path();
 
-private:
-    /* Setter */
-    static void setHomePath();
-    static void setApplicationPath();
+        /* GETTER */
+        unsigned int statusCode() const;
+        string url() const;
+    private:
+        const unsigned int _statusCode;
+        const string _url;
+};
 
-    static const tuple<const unsigned int, const string> *_homePath;
-    static const tuple<const unsigned int, const string> *_applicationPath;
+class OS {
+    public:
+        static void init();
+
+        /* GETTER */
+        static const Path *homePath();
+        static const Path *applicationPath();
+
+    private:
+        /* SETTER */
+        static void setHomePath();
+        static void setApplicationPath();
+
+        static const Path *_homePath;
+        static const Path *_applicationPath;
 };
 
 #endif // OS_H
