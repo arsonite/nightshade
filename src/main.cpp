@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
     mainWindow.show();
     return a.exec();
     */
+
     char path[MAX_PATH];
     int homeDirectoryFound = 1;
     string homeDirectory = "";

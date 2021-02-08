@@ -2,6 +2,6 @@
 <qresource>
     <file alias="menu_back">resources/audio/sfx/gui/menu_back.wav</file>
     <file alias="menu_navigate">resources/audio/sfx/gui/menu_navigate.wav</file>
-    <file alias="menu_select">resources/audio/sfx/gui/menu_select.mp3</file>
+    <file alias="menu_select">resources/audio/sfx/gui/menu_select.wav</file>
 </qresource>
 </RCC>
