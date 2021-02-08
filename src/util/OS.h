@@ -18,23 +18,19 @@ using namespace std;
 class OS
 {
 public:
-    explicit OS(); // Empty constructor
-
-    virtual ~OS(); // Deconstructor
-
     static void init();
 
     /* Getter */
-    static const tuple<const unsigned int, const string> homePath();
-    static const tuple<const unsigned int, const string> applicationPath();
+    static const tuple<const unsigned int, const string> *homePath();
+    static const tuple<const unsigned int, const string> *applicationPath();
 
 private:
     /* Setter */
     static void setHomePath();
     static void setApplicationPath();
 
-    static const tuple<const unsigned int, const string>* _homePath;
-    static const tuple<const unsigned int, const string>* _applicationPath;
+    static const tuple<const unsigned int, const string> *_homePath;
+    static const tuple<const unsigned int, const string> *_applicationPath;
 };
 
 #endif // OS_H
