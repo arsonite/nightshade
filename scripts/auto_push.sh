@@ -2,4 +2,4 @@
 
 # Define a timestamp function
 DATE_WITH_TIME=`date "+%d.%m.%Y - %H:%M:%S"`
-git add . && git commit -m "script: auto_push ($DATE_WITH_TIME)" && git push
+git add . && git commit -m "auto_push ($DATE_WITH_TIME)" && git push
