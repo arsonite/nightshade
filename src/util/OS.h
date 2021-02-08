@@ -1,3 +1,3 @@
 /** DISCLAIMER
- * MIT-License (C) Arsonite (2019-2021)
+ * MIT-License (C) https://github.com/arsonite
  */

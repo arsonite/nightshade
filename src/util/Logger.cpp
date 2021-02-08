@@ -1,5 +1,5 @@
 /** DISCLAIMER
- * MIT-License (C) Arsonite (2019-2021)
+ * MIT-License (C) https://github.com/arsonite
  */
 #ifndef LOGGER_H
 #define LOGGER_H
@@ -11,9 +11,9 @@ using namespace std;
 class Logger
 {
 public:
-    Logger();
+    Logger(); // Empty constructor
 
-    ~Logger();
+    ~Logger(); // Standard destructor
 
     int error(string message);
 };

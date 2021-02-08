@@ -7,26 +7,13 @@ CONFIG += c++20
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 
-SOURCES = $$files(src/*.cpp, true) \
-    main.cpp \
-    src/util/Logger.cpp
+SOURCES = $$files(src/*.cpp, true)
 
-HEADERS = $$files(src/*.h, true) \
-    src/engine/util/ID.h \
-    src/engine/util/ID.h \
-    src/engine/util/ID.h \
-    src/engine/util/ID.h \
-    src/graphics/gui/mainwindow.h \
-    src/graphics/gui/mainwindow.h \
-    src/graphics/gui/mainwindow.h \
-    src/graphics/gui/mainwindow.h \
-    src/util/Logger.h \
-    src/util/Logger.h
+HEADERS = $$files(src/*.h, true)
 
-HEADERS = $$files(src/*.ui, true)
+FORMS = $$files(src/*.ui, true)
 
-TRANSLATIONS += \
-    nightshade_en_US.ts
+TRANSLATIONS += $$files(lang/*.ts, true)
 
 INCLUDEPATH += src/
 
@@ -35,29 +22,6 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    src/audio/music/placeholder \
-    src/audio/sfx/placeholder \
-    src/audio/util/placeholder \
-    src/debug/placeholder \
-    src/engine/asset/base/placeholder \
-    src/engine/asset/core/placeholder \
-    src/engine/asset/util/core/placeholder \
-    src/engine/asset/util/placeholder \
-    src/engine/base/placeholder \
-    src/engine/core/placeholder \
-    src/engine/gen/placeholder \
-    src/engine/math/placeholder \
-    src/graphics/gfx/placeholder \
-    src/graphics/util/placeholder \
-    src/tests/placeholder
+#DISTFILES += \
 
-RESOURCES += \
-    audio_music.qrc \
-    audio_music.qrc \
-    audio_sfx.qrc \
-    audio_sfx.qrc \
-    sources/audio_music.qrc \
-    sources/audio_sfx.qrc \
-    sources/graphics_gfx.qrc \
-    sources/graphics_gui.qrc
+RESOURCES += $$files(sources/*.qrc, true)
