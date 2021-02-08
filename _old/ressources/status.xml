@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stati>
+    <status>
+        <id>ST#000001</id>
+        <name>Lascivious</name>
+        <description></description>
+    </status>
+
+    <status>
+        <id>ST#000002</id>
+        <name>Ravenous</name>
+        <description></description>
+    </status>
+
+    <status>
+        <id>ST#000003</id>
+        <name>Lascivious</name>
+        <description></description>
+        <attribute></attribute>
+        <value></value>
+        <buff></buff>
+        <debuff></debuff>
+    </status>
+
+    <status>
+        <id>ST#000004</id>
+        <name>Lascivious</name>
+        <description></description>
+    </status>
+</stati>
