@@ -18,6 +18,7 @@ struct Path {
         /* GETTER */
         unsigned int statusCode() const;
         string url() const;
+
     private:
         const unsigned int _statusCode;
         const string _url;
