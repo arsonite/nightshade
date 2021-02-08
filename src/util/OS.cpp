@@ -1,7 +1,7 @@
 /** DISCLAIMER
  * MIT-License (C) https://github.com/arsonite
  */
-#include "OS.h"
+#include "os.h"
 
 void OS::init() {
     OS::setHomePath();

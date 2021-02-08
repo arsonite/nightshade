@@ -1,10 +1,10 @@
 /** DISCLAIMER
  * MIT-License (C) https://github.com/arsonite
  */
+#pragma once
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include <iostream>
 #include <string>
 
 using namespace std;
@@ -12,17 +12,24 @@ using namespace std;
 class Logger
 {
 public:
-    Logger(string classname); // Standard constructor
+    explicit Logger(string className); // Standard constructor
 
-    ~Logger(); // Standard destructor
+    virtual ~Logger(); // Standard destructor
 
     string log(string message) const;
-    string log(int number) const;
-    string log(float number) const;
+    int log(int number) const;
+    float log(float number) const;
 
     string print(string message) const;
-    string print(int number) const;
-    string print(float number) const;
+    int print(int number) const;
+    float print(float number) const;
+
+    static string getDate();
+    static string getTime();
+
+private:
+    const string _logPath;
+    const string _className;
 };
 
 #endif // LOGGER_H
