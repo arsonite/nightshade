@@ -6,10 +6,6 @@
 
 #include <iostream>
 #include <string>
-#include <shlobj.h>
-#include <windows.h>
-
-#include "userenv.h"
 
 using namespace std;
 
