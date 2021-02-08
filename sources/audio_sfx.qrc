@@ -1,7 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-    <file alias="soft_click">resources/audio/sfx/soft_click.wav</file>
-    <file alias="small_click">resources/audio/sfx/small_click.wav</file>
-    <file alias="soft_flick">resources/audio/sfx/soft_flick.mp3</file>
+    <file alias="menu_back">resources/audio/sfx/gui/menu_back.wav</file>
+    <file alias="menu_navigate">resources/audio/sfx/gui/menu_navigate.wav</file>
+    <file alias="menu_select">resources/audio/sfx/gui/menu_select.mp3</file>
 </qresource>
 </RCC>
