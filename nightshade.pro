@@ -15,9 +15,12 @@ HEADERS = $$files(src/*.h, true) \
     src/engine/util/ID.h \
     src/engine/util/ID.h \
     src/engine/util/ID.h \
+    src/engine/util/ID.h \
     src/graphics/gui/mainwindow.h \
     src/graphics/gui/mainwindow.h \
     src/graphics/gui/mainwindow.h \
+    src/graphics/gui/mainwindow.h \
+    src/util/Logger.h \
     src/util/Logger.h
 
 HEADERS = $$files(src/*.ui, true)
@@ -53,4 +56,8 @@ RESOURCES += \
     audio_music.qrc \
     audio_music.qrc \
     audio_sfx.qrc \
-    audio_sfx.qrc
+    audio_sfx.qrc \
+    sources/audio_music.qrc \
+    sources/audio_sfx.qrc \
+    sources/graphics_gfx.qrc \
+    sources/graphics_gui.qrc

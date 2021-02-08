@@ -1,3 +1,6 @@
+/** DISCLAIMER
+ * MIT-License (C) Arsonite (2019-2021)
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

@@ -4,14 +4,17 @@
 #include "graphics/gui/mainwindow.h"
 
 #include <QApplication>
+#include <QResource>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    //MainWindow w;
-    //w.show();
+    // MainWindow w;
+    // w.show();
 
-    QResource::registerResource("/path/to/myresource.rcc");
+    // QResource::registerResource("/path/to/myresource.rcc");
+
+
 
     return a.exec();
 }
