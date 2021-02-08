@@ -1,21 +1,23 @@
 /** DISCLAIMER
  * MIT-License (C) https://github.com/arsonite
  */
-#ifndef LOGGER_H
-#define LOGGER_H
 
-#include <string>
 
-using namespace std;
 
-class Logger
-{
-public:
-    Logger(); // Empty constructor
 
-    ~Logger(); // Standard destructor
+char path[MAX_PATH];
+int homeDirectoryFound = 1;
+string homeDirectory = "";
+if (SHGetFolderPathA(NULL, CSIDL_PROFILE, NULL, 0, path) != S_OK) {
+    homeDirectoryFound = 0;
+} else {
+    homeDirectory = path;
+}
 
-    int error(string message);
-};
-
-#endif // LOGGER_H
+int applicationDirectoryFound = 1;
+string applicationDirectory = "";
+if (SHGetFolderPathA(NULL, CSIDL_LOCAL_APPDATA, NULL, 0, path) != S_OK) {
+    applicationDirectoryFound = 0;
+} else {
+    applicationDirectory = path;
+}
