@@ -7,7 +7,8 @@
 #include "graphics/gui/mainwindow.h"
 
 /* TEST-IMPORTS */
-#include ""
+#include "util/logger.h"
+#include "util/os.h"
 /****************/
 
 int main(int argc, char *argv[])
