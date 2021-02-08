@@ -5,10 +5,6 @@
 
 #include <iostream>
 
-/**
- * @brief Logger::Logger
- * @param className
- */
 Logger::Logger(string className): _className(className) {}
 
 std::__cxx11::string Logger::print(std::__cxx11::string message) const {
@@ -20,9 +16,7 @@ std::__cxx11::string Logger::print(std::__cxx11::string message) const {
 }
 
 string Logger::getDate() {
-
 }
 
 string Logger::getTime() {
-
 }

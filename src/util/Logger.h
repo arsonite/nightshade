@@ -11,9 +11,9 @@ using namespace std;
 
 class Logger {
     public:
-        explicit Logger(string className); // Standard constructor
+        Logger(string className); // Standard constructor
 
-        virtual ~Logger(); // Standard destructor
+        ~Logger(); // Standard destructor
 
         string log(string message) const;
         int log(int number) const;

@@ -7,7 +7,6 @@
 #include "graphics/gui/mainwindow.h"
 
 /* TEST-IMPORTS */
-#include "util/logger.h"
 #include "util/os.h"
 /****************/
 

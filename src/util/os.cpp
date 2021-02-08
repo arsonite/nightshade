@@ -3,6 +3,9 @@
  */
 #include "os.h"
 
+#include <shlobj.h>
+#include <windows.h>
+
 void OS::init() {
     OS::setHomePath();
     OS::setApplicationPath();
@@ -18,14 +21,14 @@ const Path *OS::applicationPath() {
 
 void OS::setHomePath() {
     char path[MAX_PATH];
-    boolean homeDirectoryFound = true;
+    unsigned int homeDirectoryFound = 1;
     string homeDirectory = "";
     if (SHGetFolderPathA(NULL, CSIDL_PROFILE, NULL, 0, path) != S_OK) {
         homeDirectoryFound = 0;
     } else {
         homeDirectory = path;
     }
-    _homePath = new Path(homeDirectoryFound, homeDirectory);
+    OS::_homePath = new Path(homeDirectoryFound, homeDirectory);
 }
 
 void OS::setApplicationPath() {
@@ -37,5 +40,5 @@ void OS::setApplicationPath() {
     } else {
         applicationDirectory = path;
     }
-    _applicationPath = new const Path(applicationDirectoryFound, applicationDirectory);
+    OS::_applicationPath = new Path(applicationDirectoryFound, applicationDirectory);
 }

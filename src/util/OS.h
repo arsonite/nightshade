@@ -6,20 +6,14 @@
 #define OS_H
 
 #include <string>
-#include <tuple>
-
-#include <shlobj.h>
-#include <windows.h>
-
-#include "userenv.h"
 
 using namespace std;
 
 struct Path {
     public:
-        explicit Path(unsigned int statusCode, string url);
+        Path(unsigned int statusCode, string url);
 
-        virtual ~Path();
+        ~Path();
 
         /* GETTER */
         unsigned int statusCode() const;
