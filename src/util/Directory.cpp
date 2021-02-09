@@ -12,8 +12,7 @@
 
 using namespace std;
 
-void Directory::init(const Path applicationPath)
-{
+void Directory::init(const Path applicationPath) {
     namespace fs = filesystem;
-    fs::create_directories("./a/b/c");
+    fs::create_directories(applicationPath.url() + "/ProjectNightshade");
 }

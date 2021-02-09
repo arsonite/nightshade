@@ -9,6 +9,8 @@
 #ifndef FILE_H
 #define FILE_H
 
+#include "path.h"
+
 #include <string>
 
 using namespace std;
@@ -19,7 +21,7 @@ class File {
 
         ~File(); // Standard destructor
 
-        static void init();
+        static void init(const Path applicationPath);
 };
 
 #endif // FILE_H

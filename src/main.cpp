@@ -23,9 +23,10 @@ int main(int argc, char *argv[])
     */
 
    OS::init();
-   Directory::init();
+   Directory::init(*OS::applicationPath());
+   File::init(*OS::applicationPath());
 
-   Logger *logger = new Logger("main.cpp");
    std::string applicationPath = OS::applicationPath()->url();
+   Logger *logger = new Logger("main.cpp");
    logger->print(applicationPath);
 }
