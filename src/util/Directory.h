@@ -9,6 +9,8 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
+#include "path.h"
+
 class Directory {
     public:
         Directory(); // Standard constructor

@@ -9,6 +9,8 @@
 #ifndef OS_H
 #define OS_H
 
+#include "path.h"
+
 class OS {
     public:
         static void init();

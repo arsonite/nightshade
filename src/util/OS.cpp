@@ -10,6 +10,10 @@
 #include <shlobj.h>
 #include <windows.h>
 
+#include <string>
+
+using namespace std;
+
 void OS::init() {
     OS::setHomePath();
     OS::setApplicationPath();

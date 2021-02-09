@@ -7,6 +7,8 @@
 #include "graphics/gui/mainwindow.h"
 
 /* TEST-IMPORTS */
+#include "util/directory.h"
+#include "util/file.h"
 #include "util/logger.h"
 #include "util/os.h"
 /****************/
@@ -21,6 +23,7 @@ int main(int argc, char *argv[])
     */
 
    OS::init();
+   Directory::init();
 
    Logger *logger = new Logger("main.cpp");
    std::string applicationPath = OS::applicationPath()->url();

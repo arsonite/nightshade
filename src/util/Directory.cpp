@@ -12,7 +12,7 @@
 
 using namespace std;
 
-void Directory::init()
+void Directory::init(const Path applicationPath)
 {
     namespace fs = filesystem;
     fs::create_directories("./a/b/c");
