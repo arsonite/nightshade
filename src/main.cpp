@@ -23,5 +23,6 @@ int main(int argc, char *argv[])
    OS::init();
 
    Logger *logger = new Logger("main.cpp");
-   logger->print(OS::applicationPath()->url());
+   std::string applicationPath = OS::applicationPath()->url();
+   logger->print(applicationPath);
 }
