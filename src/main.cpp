@@ -7,6 +7,7 @@
 #include "graphics/gui/mainwindow.h"
 
 /* TEST-IMPORTS */
+#include "util/logger.h"
 #include "util/os.h"
 /****************/
 
@@ -19,5 +20,8 @@ int main(int argc, char *argv[])
     return a.exec();
     */
 
-   
+   OS::init();
+
+   Logger *logger = new Logger("main.cpp");
+   logger->print(OS::applicationPath()->url());
 }

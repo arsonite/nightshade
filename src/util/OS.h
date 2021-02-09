@@ -9,6 +9,7 @@
 
 using namespace std;
 
+/* Path struct */
 struct Path {
     public:
         Path(unsigned int statusCode, string url);
@@ -24,6 +25,7 @@ struct Path {
         const string _url;
 };
 
+/* OS static class */
 class OS {
     public:
         static void init();
@@ -37,8 +39,8 @@ class OS {
         static void setHomePath();
         static void setApplicationPath();
 
-        static const Path *_homePath;
-        static const Path *_applicationPath;
+        inline static const Path *_homePath;
+        inline static const Path *_applicationPath;
 };
 
 #endif // OS_H

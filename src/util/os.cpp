@@ -6,6 +6,18 @@
 #include <shlobj.h>
 #include <windows.h>
 
+/* Path struct */
+Path::Path(unsigned int statusCode, string url): _statusCode(statusCode), _url(url) {}
+
+unsigned int Path::statusCode() const {
+    return _statusCode;
+}
+
+string Path::url() const {
+    return _url;
+}
+
+/* OS static class */
 void OS::init() {
     OS::setHomePath();
     OS::setApplicationPath();
@@ -28,7 +40,7 @@ void OS::setHomePath() {
     } else {
         homeDirectory = path;
     }
-    OS::_homePath = new Path(homeDirectoryFound, homeDirectory);
+    OS::_homePath = new const Path(homeDirectoryFound, homeDirectory);
 }
 
 void OS::setApplicationPath() {
@@ -40,5 +52,5 @@ void OS::setApplicationPath() {
     } else {
         applicationDirectory = path;
     }
-    OS::_applicationPath = new Path(applicationDirectoryFound, applicationDirectory);
+    OS::_applicationPath = new const Path(applicationDirectoryFound, applicationDirectory);
 }

@@ -15,20 +15,20 @@ class Logger {
 
         ~Logger(); // Standard destructor
 
-        string log(string message) const;
-        int log(int number) const;
-        float log(float number) const;
+        void log(string message) const;
+        void log(int number) const;
+        void log(float number) const;
 
-        string print(string message) const;
-        int print(int number) const;
-        float print(float number) const;
+        void print(string message) const;
+        void print(int number) const;
+        void print(float number) const;
 
         static string getDate();
         static string getTime();
 
     private:
-        const string _logPath;
         const string _className;
+        const string _logPath;
 };
 
 #endif // LOGGER_H
