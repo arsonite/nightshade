@@ -2,7 +2,7 @@ QT += quick core gui opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++20
+CONFIG += c++17
 
 SOURCES = $$files(src/*.cpp, true) \
     src/util/path.cpp
