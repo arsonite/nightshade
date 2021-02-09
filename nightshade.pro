@@ -4,9 +4,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++20
 
-SOURCES = $$files(src/*.cpp, true)
+SOURCES = $$files(src/*.cpp, true) \
+    src/util/path.cpp
 
-HEADERS = $$files(src/*.h, true)
+HEADERS = $$files(src/*.h, true) \
+    src/util/path.h
 
 FORMS = $$files(src/*.ui, true)
 

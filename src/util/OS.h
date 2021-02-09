@@ -9,27 +9,6 @@
 #ifndef OS_H
 #define OS_H
 
-#include <string>
-
-using namespace std;
-
-/* Path struct */
-struct Path {
-    public:
-        Path(unsigned int statusCode, string url);
-
-        ~Path();
-
-        /* GETTER */
-        unsigned int statusCode() const;
-        string url() const;
-
-    private:
-        const unsigned int _statusCode;
-        const string _url;
-};
-
-/* OS static class */
 class OS {
     public:
         static void init();

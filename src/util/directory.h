@@ -9,17 +9,13 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
-#include <string>
-
-using namespace std;
-
 class Directory {
     public:
         Directory(); // Standard constructor
 
         ~Directory(); // Standard destructor
 
-        static void init();
+        static void init(const Path applicationPath);
 };
 
 #endif // DIRECTORY_H
